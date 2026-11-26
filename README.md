@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# thenovembercouple.com
 
-## Getting Started
+The November Couple's site: home, trips, trip planners, journal, and a brand / media-kit page.
+Built with Next.js 15 (App Router), Tailwind v4, Supabase and Resend, and hosted on Vercel.
 
-First, run the development server:
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm test           # booking-rule + calendar unit tests
+npm run build      # production build (validates all content)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The site runs without any keys. The planner, the calendar download and all pages work. Saving a trip, newsletter sign-up and the brand form show a friendly "not switched on yet" message until you add the keys below.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Adding a new trip (no code changes)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Create `content/destinations/<slug>/`, copying `japan/` as a template:
+   - `destination.json` holds the name, timezone (IANA, e.g. `Asia/Makassar`), currency, cities, categories and essentials.
+   - `itinerary.json` holds your day-by-day plan. Set `activity` to an activity slug to link an entry.
+   - `activities.json` is the catalog. Each activity has a `booking.rule` (see below).
+2. Register it with one line in `content/destinations/index.ts`.
+3. Run `npm run build`. The content is validated, and a typo (an unknown slug or a bad date) fails the build with a clear message.
 
-## Learn More
+### Booking rules
 
-To learn more about Next.js, take a look at the following resources:
+All times are in the destination's local time zone.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| `type` | Example | Meaning |
+|---|---|---|
+| `daysBefore` | `{ "days": 60, "time": "14:00" }` | Tokyo Disney: 60 days before at 2 PM |
+| `monthsBefore` | `{ "months": 3 }` | USJ: 3 months before |
+| `monthlyRelease` | `{ "dayOfMonth": 10, "monthsAhead": 1, "time": "10:00" }` | Ghibli: the whole month goes on sale on the 10th of the month before |
+| `lottery` | `{ "entryMonthsBefore": 3 }` | Nintendo Museum: lottery entries open 3 months before |
+| `recommended` | `{ "daysBefore": 14 }` | No release date; book about 2 weeks ahead |
+| `none` | `{}` | Walk in |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Update `lastVerified` whenever you re-check a rule. It's shown on the activity page.
 
-## Deploy on Vercel
+### Photos
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Put images in `public/images/` and set `"image": "/images/xyz.jpg"` on an activity, or `coverImage` on a destination, or `heroImage` in `content/site.ts`. Anything without a photo shows an elegant typographic placeholder.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Going live
+
+1. **Supabase**: create a project and run `supabase/schema.sql` in the SQL editor.
+2. **Resend**: verify `thenovembercouple.com` as a sending domain.
+3. **Vercel**: import the repo and add the env vars from `.env.example`.
+4. **Reminder emails** need `/api/cron/reminders` called every 10–15 minutes with `Authorization: Bearer $CRON_SECRET`:
+   - On Vercel **Pro**, add a `vercel.json` with `{"crons":[{"path":"/api/cron/reminders","schedule":"*/10 * * * *"}]}`. Vercel sends the secret automatically.
+   - On the **Hobby** plan, crons run at most daily, which is too coarse for "opens in 1 hour" reminders. Use a free external scheduler (e.g. cron-job.org, or a GitHub Actions schedule) to call the URL with the header instead.
+5. Optional extras:
+   - `BEHOLD_FEED_ID` shows the live Instagram grid (via behold.so).
+   - The Turnstile keys add spam protection to the brand form.
+   - The affiliate IDs are appended automatically to outbound links through `/go/...`.
+
+## Content to fill in
+
+- `content/media-kit.json`: stats, audience, partners, case studies, and the PDF link.
+- `app/about/page.tsx`: your story and facts. The current text is placeholder copy.
+- `content/journal/*.mdx`: posts. Two drafts are included.
+- `app/privacy/page.tsx`: a template. Have it reviewed for your jurisdiction.

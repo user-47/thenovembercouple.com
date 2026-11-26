@@ -1,0 +1,122 @@
+{
+  "summary": "Family of four (2 adults + kids 3 & 5) · round-trip via Narita · 5 nights Tokyo + 6 Kansai + 1 Tokyo",
+  "days": [
+    {
+      "day": 1, "date": "2026-11-25", "location": "Tokyo", "title": "Arrival & Shinjuku lights",
+      "entries": [
+        { "time": "4:30 PM", "title": "Land at Narita — Narita Express straight to the hotel (~75 min)", "activity": "narita-express" },
+        { "time": "6:30 PM", "title": "Check in, konbini dinner + a first look at the Shinjuku lights" },
+        { "time": "8:30 PM", "title": "Early night to get ahead of the jet lag before it hits the kids" }
+      ]
+    },
+    {
+      "day": 2, "date": "2026-11-26", "location": "Tokyo", "title": "Akihabara, Asakusa & the aquarium",
+      "entries": [
+        { "time": "10:00 AM", "title": "Akihabara — anime deep dive: figures, retro arcades, Gundam Base, Mandarake", "activity": "akihabara" },
+        { "time": "11:00 AM", "title": "Brunch / lunch (a themed café if the kids are game)" },
+        { "time": "12:00 PM", "title": "Kimono photoshoot at Senso-ji", "activity": "sensoji-kimono-photoshoot", "status": "reserved" },
+        { "time": "2:30 PM", "title": "Sumida Aquarium at Tokyo Skytree — penguins & jellyfish", "activity": "sumida-aquarium" }
+      ]
+    },
+    {
+      "day": 3, "date": "2026-11-27", "location": "Tokyo", "title": "Tokyo Disneyland",
+      "entries": [
+        { "time": "8:30 AM", "title": "At the gate before the 9:00 opening — rope-drop Fantasyland. Weekday = shorter lines", "activity": "tokyo-disneyland" },
+        { "time": "12:30 PM", "title": "Lunch + an optional hotel nap reset" },
+        { "time": "3:00 PM", "title": "Back for afternoon rides at a gentler pace" },
+        { "time": "Dusk", "title": "Christmas parade, then out ahead of the closing crush" }
+      ]
+    },
+    {
+      "day": 4, "date": "2026-11-28", "location": "Tokyo", "title": "teamLab & the Unicorn Gundam",
+      "entries": [
+        { "time": "9:30 AM", "title": "teamLab Planets — first slot; calmest right at open", "activity": "teamlab-planets", "status": "booked" },
+        { "time": "12:00 PM", "title": "Lunch around Toyosu / Odaiba" },
+        { "time": "3:00 PM", "title": "Unicorn Gundam at DiverCity — Gundam Base + the 3:00 statue transformation", "activity": "unicorn-gundam-odaiba" },
+        { "time": "7:30 PM", "title": "Optional: stay for the illuminated night show" }
+      ]
+    },
+    {
+      "day": 5, "date": "2026-11-29", "location": "Tokyo", "title": "Harajuku, Shibuya & sunset from the sky",
+      "entries": [
+        { "time": "10:00 AM", "title": "Harajuku — Takeshita & Omotesando: sneakers, @cosme skincare", "activity": "harajuku-omotesando" },
+        { "time": "1:00 PM", "title": "Shibuya — 109 & Parco for clothes, the Pokémon Center", "activity": "shibuya-pokemon-center" },
+        { "time": "3:30 PM", "title": "Shibuya Crossing + Hachiko — the world's busiest scramble at street level" },
+        { "time": "4:00 PM", "title": "Shibuya Sky for sunset — the view down onto the crossing", "activity": "shibuya-sky", "status": "to-book" }
+      ]
+    },
+    {
+      "day": 6, "date": "2026-11-30", "location": "Kyoto", "title": "Bullet train & Gion at dusk",
+      "transfer": "Shinkansen · Tokyo → Kyoto · ~10:00 AM · 2h15m · reserve a full row · Mt Fuji on the right ~40 min in",
+      "entries": [
+        { "time": "10:00 AM", "title": "Shinkansen Tokyo → Kyoto", "activity": "shinkansen-tokyo-kyoto", "status": "booked" },
+        { "time": "12:30 PM", "title": "Arrive Kyoto, drop bags at the hotel" },
+        { "time": "3:00 PM", "title": "Nishiki Market snacks + a Kamo River stroll", "activity": "nishiki-market" },
+        { "time": "4:30 PM", "title": "Gion at dusk — lantern-lit lanes as the light drops early", "activity": "gion" }
+      ]
+    },
+    {
+      "day": 7, "date": "2026-12-01", "location": "Kyoto", "title": "Kiyomizu-dera & the old lanes",
+      "entries": [
+        { "time": "8:00 AM", "title": "Kiyomizu-dera — 'early' means 8:00: buses land ~9:30, the stage jams by 10:30", "activity": "kiyomizu-dera" },
+        { "time": "9:30 AM", "title": "Sannenzaka & Ninenzaka — the old lanes downhill before they clog", "activity": "sannenzaka-ninenzaka" },
+        { "time": "11:30 AM", "title": "Yasaka Shrine + lunch back in Gion", "activity": "yasaka-shrine" }
+      ]
+    },
+    {
+      "day": 8, "date": "2026-12-02", "location": "Kyoto", "title": "Arashiyama in kimono",
+      "entries": [
+        { "time": "8:00 AM", "title": "Bamboo Grove — empty at 8:00, a river of people by 10:00", "activity": "arashiyama-bamboo-grove" },
+        { "time": "8:45 AM", "title": "Tenryu-ji garden (opens 8:30) — right beside the grove", "activity": "tenryu-ji" },
+        { "time": "10:30 AM", "title": "Daytime kimono shoot — rent near the Kimono Forest, shoot the riverside & Nonomiya lanes", "activity": "arashiyama-kimono-rental" },
+        { "time": "1:00 PM", "title": "Lunch in kimono + a relaxed riverside afternoon" }
+      ]
+    },
+    {
+      "day": 9, "date": "2026-12-03", "location": "Awaji (day trip)", "title": "Ninja day on Awaji Island",
+      "entries": [
+        { "time": "7:30 AM", "title": "Early start — fast train to Kobe + express bus over the Akashi-Kaikyo Bridge (~2–2.5h each way)" },
+        { "time": "10:00 AM", "title": "NARUTO & Boruto Shinobi-Zato — ninja trials, Ichiraku Ramen, Hokage Rock (Dad's must)", "activity": "naruto-shinobi-zato", "status": "booked" },
+        { "time": "12:30 PM", "title": "Crayon Shin-chan Adventure Park — ziplines & kid-scaled obstacle courses", "activity": "crayon-shinchan-park" },
+        { "time": "2:30 PM", "title": "Godzilla (life-size, zipline, museum) or Dragon Quest Island", "activity": "godzilla-interception" },
+        { "time": "5:00 PM", "title": "Head back to Kyoto (~2.5h), home by ~7:30 PM" }
+      ]
+    },
+    {
+      "day": 10, "date": "2026-12-04", "location": "Osaka (day trip)", "title": "Osaka: sneakers, castle & Dotonbori",
+      "entries": [
+        { "time": "10:00 AM", "title": "Train from Kyoto (~40–55 min) — a slower start after Awaji" },
+        { "time": "11:00 AM", "title": "Shinsaibashi arcade + Amerimura — sneakers, streetwear", "activity": "shinsaibashi-amerimura" },
+        { "time": "2:00 PM", "title": "Optional: Osaka Castle Park for the foliage", "activity": "osaka-castle" },
+        { "time": "5:00 PM", "title": "Dotonbori — Glico sign, takoyaki, Don Quijote for a tax-free skincare haul", "activity": "dotonbori" }
+      ]
+    },
+    {
+      "day": 11, "date": "2026-12-05", "location": "Kyoto / Nara", "title": "Ten thousand gates & the deer of Nara",
+      "entries": [
+        { "time": "7:30 AM", "title": "Fushimi Inari at the gates — 5 min from Kyoto; beat the Saturday crowds", "activity": "fushimi-inari" },
+        { "time": "10:00 AM", "title": "Stay on the same JR Nara line straight down to Nara (~45 min)" },
+        { "time": "10:45 AM", "title": "Nara Park deer — feed before they're overfed; then Todai-ji's Great Buddha", "activity": "nara-park-todaiji" },
+        { "time": "3:00 PM", "title": "Back to Kyoto for last souvenirs" }
+      ]
+    },
+    {
+      "day": 12, "date": "2026-12-06", "location": "Tokyo", "title": "Back to Tokyo & a taste of home",
+      "transfer": "Shinkansen · Kyoto → Tokyo · ~1:00 PM · 2h15m · looping back for the buffer night before the flight home",
+      "entries": [
+        { "time": "10:00 AM", "title": "Last easy Kyoto morning, relaxed checkout" },
+        { "time": "1:00 PM", "title": "Shinkansen to Tokyo (~2h15)", "activity": "shinkansen-tokyo-kyoto", "status": "to-book" },
+        { "time": "3:30 PM", "title": "Check into the Tokyo hotel — one with easy Narita access" },
+        { "time": "5:00 PM", "title": "Final shopping or one more Akihabara run — Uniqlo/GU, ABC-Mart, skincare" },
+        { "time": "7:00 PM", "title": "Nigerian dinner at Esogie — jollof, egusi & a taste of home to close the trip", "activity": "esogie-nigerian-dinner", "status": "to-book" }
+      ]
+    },
+    {
+      "day": 13, "date": "2026-12-07", "location": "Tokyo", "title": "Sayonara",
+      "entries": [
+        { "time": "Morning", "title": "Unhurried — the flight's in the evening, so pack slowly and grab one last thing" },
+        { "time": "3:00 PM", "title": "Narita Express to the airport (~60 min) for the ~6:35 PM flight", "activity": "narita-express" }
+      ]
+    }
+  ]
+}

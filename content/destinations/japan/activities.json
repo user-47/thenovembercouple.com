@@ -1,0 +1,849 @@
+[
+  {
+    "slug": "tokyo-disneyland",
+    "name": "Tokyo Disneyland",
+    "nameLocal": "東京ディズニーランド",
+    "city": "Tokyo", "area": "Maihama",
+    "categories": ["Theme parks"],
+    "kidFriendly": true,
+    "kidNotes": "Under-4s enter free. Fantasyland is perfect for 3–6 year olds; rope-drop it before the queues build.",
+    "durationHrs": 9, "priceFrom": 7900, "priceNote": "Adult 1-Day Passport, dynamic pricing",
+    "summary": "The classic Disney park with a distinctly Japanese polish — immaculate, gentle, and magical at Christmas when the parade lights up the castle.",
+    "tncTip": "Go on a weekday, be at the gate by 8:30, and plan a midday hotel nap. We came back for the parade refreshed instead of melting down.",
+    "tncDays": [3],
+    "booking": {
+      "level": "essential",
+      "rule": { "type": "daysBefore", "days": 60, "time": "14:00" },
+      "sellOutRisk": "high",
+      "howTo": "Dated tickets only, sold online — weekends and holidays can sell out. The official site can reject some foreign cards; Klook is a reliable fallback.",
+      "links": [
+        { "label": "Official tickets", "url": "https://www.tokyodisneyresort.jp/en/ticket/index.html", "kind": "official" },
+        { "label": "Klook", "url": "https://www.klook.com/search/result/?query=Tokyo%20Disneyland", "kind": "affiliate", "partner": "klook" }
+      ]
+    },
+    "lastVerified": "2026-11-14",
+    "sourceUrl": "https://www.tokyodisneyresort.jp/en/ticket/index.html"
+  },
+  {
+    "slug": "tokyo-disneysea",
+    "name": "Tokyo DisneySea",
+    "nameLocal": "東京ディズニーシー",
+    "city": "Tokyo", "area": "Maihama",
+    "categories": ["Theme parks"],
+    "kidFriendly": true,
+    "kidNotes": "More adult-leaning than Disneyland, but Fantasy Springs and Mermaid Lagoon are made for little ones.",
+    "durationHrs": 9, "priceFrom": 7900, "priceNote": "Adult 1-Day Passport, dynamic pricing",
+    "summary": "Widely called the most beautiful theme park in the world — volcanic lagoons, Venetian canals and the Fantasy Springs expansion.",
+    "booking": {
+      "level": "essential",
+      "rule": { "type": "daysBefore", "days": 60, "time": "14:00" },
+      "sellOutRisk": "high",
+      "howTo": "Same release as Disneyland: 60 days ahead at 2 PM Japan time.",
+      "links": [
+        { "label": "Official tickets", "url": "https://www.tokyodisneyresort.jp/en/ticket/index.html", "kind": "official" },
+        { "label": "Klook", "url": "https://www.klook.com/search/result/?query=Tokyo%20DisneySea", "kind": "affiliate", "partner": "klook" }
+      ]
+    },
+    "lastVerified": "2026-11-14",
+    "sourceUrl": "https://www.tokyodisneyresort.jp/en/ticket/index.html"
+  },
+  {
+    "slug": "teamlab-planets",
+    "name": "teamLab Planets",
+    "nameLocal": "チームラボプラネッツ",
+    "city": "Tokyo", "area": "Toyosu",
+    "categories": ["Experiences", "Views"],
+    "kidFriendly": true,
+    "kidNotes": "Barefoot, knee-deep water rooms — kids love it. Wear shorts or roll-up trousers.",
+    "durationHrs": 2, "priceFrom": 3600, "priceNote": "Adult, varies by date",
+    "summary": "An immersive digital art museum you walk through barefoot — koi swimming around your ankles, a floating flower garden and a universe of light.",
+    "tncTip": "Book the very first slot of the day. It's calm, the mirrors are empty, and you're out before the lunchtime rush.",
+    "tncDays": [4],
+    "booking": {
+      "level": "essential",
+      "rule": { "type": "recommended", "daysBefore": 21 },
+      "sellOutRisk": "medium",
+      "howTo": "Timed tickets sell out for weekends and holidays; book 2–4 weeks ahead.",
+      "links": [
+        { "label": "Official tickets", "url": "https://teamlabplanets.dmm.com/en", "kind": "official" },
+        { "label": "Klook", "url": "https://www.klook.com/search/result/?query=teamLab%20Planets", "kind": "affiliate", "partner": "klook" },
+        { "label": "GetYourGuide", "url": "https://www.getyourguide.com/s/?q=teamLab%20Planets", "kind": "affiliate", "partner": "getyourguide" }
+      ]
+    },
+    "lastVerified": "2026-11-14",
+    "sourceUrl": "https://teamlabplanets.dmm.com/en"
+  },
+  {
+    "slug": "teamlab-borderless",
+    "name": "teamLab Borderless",
+    "nameLocal": "チームラボボーダレス",
+    "city": "Tokyo", "area": "Azabudai Hills",
+    "categories": ["Experiences"],
+    "kidFriendly": true,
+    "kidNotes": "Dark, maze-like rooms — hold small hands. The Athletics Forest is a favourite for 4+.",
+    "durationHrs": 2.5, "priceFrom": 3600, "priceNote": "Adult, varies by date",
+    "summary": "A borderless world of art that drifts between rooms — the sister to Planets, more mysterious and dreamlike.",
+    "booking": {
+      "level": "essential",
+      "rule": { "type": "recommended", "daysBefore": 21 },
+      "sellOutRisk": "medium",
+      "links": [
+        { "label": "Official site", "url": "https://www.teamlab.art/e/borderless-azabudai/", "kind": "official" },
+        { "label": "Klook", "url": "https://www.klook.com/search/result/?query=teamLab%20Borderless", "kind": "affiliate", "partner": "klook" }
+      ]
+    },
+    "lastVerified": "2026-11-14",
+    "sourceUrl": "https://www.teamlab.art/e/borderless-azabudai/"
+  },
+  {
+    "slug": "shibuya-sky",
+    "name": "Shibuya Sky",
+    "nameLocal": "渋谷スカイ",
+    "city": "Tokyo", "area": "Shibuya",
+    "categories": ["Views"],
+    "kidFriendly": true,
+    "kidNotes": "Open-air rooftop with high glass walls. No loose items (hats, bags) on the roof — lockers provided.",
+    "durationHrs": 1.5, "priceFrom": null, "priceNote": "Web tickets are cheaper than the counter",
+    "summary": "An open-air rooftop 230m above the Shibuya scramble — the definitive Tokyo sunset, with Mt Fuji on clear days.",
+    "tncTip": "Sunset slots go first. Book the slot that starts ~40 minutes before sunset so you see daylight, golden hour and the city lighting up.",
+    "tncDays": [5],
+    "booking": {
+      "level": "essential",
+      "rule": { "type": "daysBefore", "days": 14, "time": "00:00" },
+      "sellOutRisk": "high",
+      "howTo": "Web tickets open two weeks ahead at midnight Japan time. Sunset slots can vanish within hours.",
+      "links": [
+        { "label": "Official tickets", "url": "https://www.shibuya-scramble-square.com/sky/ticket/", "kind": "official" },
+        { "label": "Klook", "url": "https://www.klook.com/search/result/?query=Shibuya%20Sky", "kind": "affiliate", "partner": "klook" }
+      ]
+    },
+    "lastVerified": "2026-11-14",
+    "sourceUrl": "https://www.shibuya-scramble-square.com/sky/ticket/"
+  },
+  {
+    "slug": "ghibli-museum",
+    "name": "Ghibli Museum",
+    "nameLocal": "三鷹の森ジブリ美術館",
+    "city": "Tokyo", "area": "Mitaka",
+    "categories": ["Anime & games", "Experiences"],
+    "kidFriendly": true,
+    "kidNotes": "Under-4s free. The Catbus room is for children 12 and under only — little ones adore it.",
+    "durationHrs": 2.5, "priceFrom": 1000, "priceNote": "Adult",
+    "summary": "Hayao Miyazaki's whimsical museum — a short film you can only see here, the life-size Catbus and the rooftop Robot Soldier.",
+    "booking": {
+      "level": "essential",
+      "rule": { "type": "monthlyRelease", "dayOfMonth": 10, "monthsAhead": 1, "time": "10:00" },
+      "sellOutRisk": "extreme",
+      "howTo": "The entire next month releases on the 10th at 10:00 AM JST via Lawson Ticket and sells out in minutes. Tickets are named — bring matching ID.",
+      "links": [
+        { "label": "Official tickets", "url": "https://www.ghibli-museum.jp/en/tickets/", "kind": "official" }
+      ]
+    },
+    "lastVerified": "2026-11-14",
+    "sourceUrl": "https://www.ghibli-museum.jp/en/tickets/"
+  },
+  {
+    "slug": "pokemon-cafe-tokyo",
+    "name": "Pokémon Café Tokyo",
+    "nameLocal": "ポケモンカフェ",
+    "city": "Tokyo", "area": "Nihonbashi",
+    "categories": ["Food", "Anime & games"],
+    "kidFriendly": true,
+    "kidNotes": "Pikachu comes out to dance — ask for a table with a view of the stage.",
+    "durationHrs": 1.5, "priceFrom": null, "priceNote": "Pay for what you order",
+    "summary": "Pikachu-shaped curry, Gengar desserts and a live Pikachu show — the most sought-after table in Tokyo for Pokémon fans.",
+    "booking": {
+      "level": "essential",
+      "rule": { "type": "daysBefore", "days": 31, "time": "18:00" },
+      "sellOutRisk": "extreme",
+      "howTo": "Reservations open 31 days ahead at 6:00 PM JST and go in seconds. Have the page open early; retry ~6:15 PM for cancellations.",
+      "links": [
+        { "label": "Official reservations", "url": "https://www.pokemon-cafe.jp/en/", "kind": "official" }
+      ]
+    },
+    "lastVerified": "2026-11-14",
+    "sourceUrl": "https://www.pokemon-cafe.jp/en/cafe/faq/"
+  },
+  {
+    "slug": "kirby-cafe-tokyo",
+    "name": "Kirby Café Tokyo",
+    "nameLocal": "カービィカフェ",
+    "city": "Tokyo", "area": "Tokyo Skytree Town",
+    "categories": ["Food", "Anime & games"],
+    "kidFriendly": true,
+    "durationHrs": 1.5, "priceFrom": null,
+    "summary": "Impossibly cute Kirby-shaped food in Skytree Town — pairs perfectly with the Sumida Aquarium.",
+    "booking": {
+      "level": "essential",
+      "rule": { "type": "monthlyRelease", "dayOfMonth": 10, "monthsAhead": 1, "time": "18:00" },
+      "sellOutRisk": "extreme",
+      "howTo": "The following month opens on the 10th at 6:00 PM JST. Popular slots go within a minute.",
+      "links": [
+        { "label": "Official reservations", "url": "https://kirbycafe.jp/", "kind": "official" }
+      ]
+    },
+    "lastVerified": "2026-11-14",
+    "sourceUrl": "https://kirbycafe.jp/"
+  },
+  {
+    "slug": "harry-potter-studio-tour",
+    "name": "Warner Bros. Studio Tour Tokyo — The Making of Harry Potter",
+    "city": "Tokyo", "area": "Nerima",
+    "categories": ["Experiences"],
+    "kidFriendly": true,
+    "kidNotes": "Big walking day — bring the stroller. Robes and wands for small wizards in the shop.",
+    "durationHrs": 4, "priceFrom": 6500, "priceNote": "Adult, approx.",
+    "summary": "The Great Hall, Diagon Alley and the Hogwarts Express — the largest indoor Harry Potter attraction in the world.",
+    "booking": {
+      "level": "essential",
+      "rule": { "type": "recommended", "daysBefore": 30 },
+      "sellOutRisk": "medium",
+      "howTo": "Timed entry; weekends and special events sell out weeks ahead.",
+      "links": [
+        { "label": "Official tickets", "url": "https://www.wbstudiotour.jp/en/", "kind": "official" },
+        { "label": "Klook", "url": "https://www.klook.com/search/result/?query=Harry%20Potter%20Studio%20Tour%20Tokyo", "kind": "affiliate", "partner": "klook" }
+      ]
+    },
+    "lastVerified": "2026-11-14",
+    "sourceUrl": "https://www.wbstudiotour.jp/en/"
+  },
+  {
+    "slug": "sanrio-puroland",
+    "name": "Sanrio Puroland",
+    "nameLocal": "サンリオピューロランド",
+    "city": "Tokyo", "area": "Tama",
+    "categories": ["Theme parks"],
+    "kidFriendly": true,
+    "kidNotes": "Indoor, stroller-friendly and perfectly pitched for under-6s.",
+    "durationHrs": 5, "priceFrom": null,
+    "summary": "Hello Kitty's indoor theme park — shows, gentle rides and a lot of pink. A rainy-day saviour.",
+    "booking": {
+      "level": "recommended",
+      "rule": { "type": "recommended", "daysBefore": 7 },
+      "sellOutRisk": "low",
+      "links": [
+        { "label": "Official site", "url": "https://en.puroland.jp/", "kind": "official" },
+        { "label": "Klook", "url": "https://www.klook.com/search/result/?query=Sanrio%20Puroland", "kind": "affiliate", "partner": "klook" }
+      ]
+    },
+    "lastVerified": "2026-11-14",
+    "sourceUrl": "https://en.puroland.jp/"
+  },
+  {
+    "slug": "sumida-aquarium",
+    "name": "Sumida Aquarium",
+    "nameLocal": "すみだ水族館",
+    "city": "Tokyo", "area": "Tokyo Skytree Town",
+    "categories": ["Nature", "Experiences"],
+    "kidFriendly": true,
+    "kidNotes": "Compact and stroller-easy. The penguin pool is at toddler eye level.",
+    "durationHrs": 1.5, "priceFrom": null,
+    "summary": "A jewel-box aquarium at the foot of Skytree — an open penguin pool and glowing jellyfish rooms.",
+    "tncDays": [2],
+    "booking": {
+      "level": "none",
+      "rule": { "type": "none" },
+      "sellOutRisk": "low",
+      "links": [
+        { "label": "Official site", "url": "https://www.sumida-aquarium.com/en/", "kind": "official" },
+        { "label": "Klook", "url": "https://www.klook.com/search/result/?query=Sumida%20Aquarium", "kind": "affiliate", "partner": "klook" }
+      ]
+    },
+    "lastVerified": "2026-11-14",
+    "sourceUrl": "https://www.sumida-aquarium.com/en/"
+  },
+  {
+    "slug": "tokyo-skytree",
+    "name": "Tokyo Skytree",
+    "nameLocal": "東京スカイツリー",
+    "city": "Tokyo", "area": "Oshiage",
+    "categories": ["Views"],
+    "kidFriendly": true,
+    "durationHrs": 1.5, "priceFrom": null,
+    "summary": "Japan's tallest tower, with a glass floor that tests every parent's nerves.",
+    "booking": {
+      "level": "recommended",
+      "rule": { "type": "recommended", "daysBefore": 3 },
+      "sellOutRisk": "low",
+      "links": [
+        { "label": "Official tickets", "url": "https://www.tokyo-skytree.jp/en/", "kind": "official" },
+        { "label": "Klook", "url": "https://www.klook.com/search/result/?query=Tokyo%20Skytree", "kind": "affiliate", "partner": "klook" }
+      ]
+    },
+    "lastVerified": "2026-11-14",
+    "sourceUrl": "https://www.tokyo-skytree.jp/en/"
+  },
+  {
+    "slug": "sensoji-kimono-photoshoot",
+    "name": "Kimono photoshoot at Senso-ji",
+    "nameLocal": "浅草寺",
+    "city": "Tokyo", "area": "Asakusa",
+    "categories": ["Culture & temples", "Experiences"],
+    "kidFriendly": true,
+    "kidNotes": "Most studios dress children from age 2–3. Ask for a family package with hair styling.",
+    "durationHrs": 3, "priceFrom": null,
+    "summary": "Tokyo's oldest temple, the Kaminarimon lantern and Nakamise street — best captured in kimono with a professional photographer.",
+    "tncTip": "Book a family photo plan that includes dressing and hair — it takes the stress out of getting four people (two of them tiny) ready.",
+    "tncDays": [2],
+    "booking": {
+      "level": "recommended",
+      "rule": { "type": "recommended", "daysBefore": 14 },
+      "sellOutRisk": "medium",
+      "links": [
+        { "label": "Find kimono photo plans", "url": "https://www.klook.com/search/result/?query=Asakusa%20kimono%20photoshoot", "kind": "affiliate", "partner": "klook" },
+        { "label": "Senso-ji", "url": "https://www.senso-ji.jp/english/", "kind": "official" }
+      ]
+    },
+    "lastVerified": "2026-11-14"
+  },
+  {
+    "slug": "akihabara",
+    "name": "Akihabara",
+    "nameLocal": "秋葉原",
+    "city": "Tokyo", "area": "Akihabara",
+    "categories": ["Anime & games", "Shopping"],
+    "kidFriendly": true,
+    "kidNotes": "Arcades are loud and some upper floors are adults-only — stick to ground floors and big-name stores with kids.",
+    "durationHrs": 3, "priceFrom": 0,
+    "summary": "Electric Town — figures, retro games, multi-storey arcades and Mandarake's maze of collectibles.",
+    "tncTip": "Go mid-morning on a weekday. Super Potato for retro games, Radio Kaikan for figures, and Sega/GiGO arcades for UFO catchers.",
+    "tncDays": [2, 12],
+    "booking": { "level": "none", "rule": { "type": "none" }, "sellOutRisk": "low", "links": [] },
+    "lastVerified": "2026-11-14"
+  },
+  {
+    "slug": "unicorn-gundam-odaiba",
+    "name": "Unicorn Gundam & Gundam Base",
+    "nameLocal": "ユニコーンガンダム立像",
+    "city": "Tokyo", "area": "Odaiba",
+    "categories": ["Anime & games", "Views"],
+    "kidFriendly": true,
+    "durationHrs": 2, "priceFrom": 0,
+    "summary": "A life-size, transforming Unicorn Gundam outside DiverCity, and the Gundam Base flagship store inside.",
+    "tncTip": "Check the transformation schedule on the day and be in place a few minutes early; stay for the evening light show if the kids are still going.",
+    "tncDays": [4],
+    "booking": {
+      "level": "none",
+      "rule": { "type": "none" },
+      "sellOutRisk": "low",
+      "links": [{ "label": "DiverCity Tokyo Plaza", "url": "https://mitsui-shopping-park.com/divercity-tokyo/en/", "kind": "official" }]
+    },
+    "lastVerified": "2026-11-14"
+  },
+  {
+    "slug": "harajuku-omotesando",
+    "name": "Harajuku & Omotesando",
+    "nameLocal": "原宿・表参道",
+    "city": "Tokyo", "area": "Harajuku",
+    "categories": ["Shopping", "Food"],
+    "kidFriendly": true,
+    "kidNotes": "Takeshita Street is a squeeze by noon — carrier over stroller.",
+    "durationHrs": 3, "priceFrom": 0,
+    "summary": "Takeshita Street's crêpes and kawaii fashion, then the tree-lined boulevard of Omotesando for sneakers and @cosme skincare.",
+    "tncDays": [5],
+    "booking": { "level": "none", "rule": { "type": "none" }, "sellOutRisk": "low", "links": [] },
+    "lastVerified": "2026-11-14"
+  },
+  {
+    "slug": "shibuya-pokemon-center",
+    "name": "Shibuya, the Crossing & Pokémon Center",
+    "nameLocal": "渋谷",
+    "city": "Tokyo", "area": "Shibuya",
+    "categories": ["Shopping", "Anime & games"],
+    "kidFriendly": true,
+    "durationHrs": 3, "priceFrom": 0,
+    "summary": "Shibuya 109 and Parco for fashion, Pokémon Center and Nintendo Tokyo upstairs at Parco, then the world's busiest scramble crossing.",
+    "tncDays": [5],
+    "booking": { "level": "none", "rule": { "type": "none" }, "sellOutRisk": "low", "links": [] },
+    "lastVerified": "2026-11-14"
+  },
+  {
+    "slug": "esogie-nigerian-dinner",
+    "name": "Esogie — Nigerian dinner in Tokyo",
+    "city": "Tokyo",
+    "categories": ["Food"],
+    "kidFriendly": true,
+    "durationHrs": 2, "priceFrom": null,
+    "summary": "Jollof, egusi and a taste of home — our way of closing the trip.",
+    "tncTip": "Small restaurant — reserve ahead, especially for a family of four.",
+    "tncDays": [12],
+    "booking": {
+      "level": "recommended",
+      "rule": { "type": "recommended", "daysBefore": 7 },
+      "sellOutRisk": "medium",
+      "links": [{ "label": "Find on Google Maps", "url": "https://www.google.com/maps/search/?api=1&query=Esogie%20Tokyo", "kind": "official" }]
+    },
+    "lastVerified": "2026-11-14"
+  },
+  {
+    "slug": "narita-express",
+    "name": "Narita Express (N'EX)",
+    "nameLocal": "成田エクスプレス",
+    "city": "Tokyo",
+    "categories": ["Getting around"],
+    "kidFriendly": true,
+    "kidNotes": "Big luggage racks and reserved seats — the calmest way in with tired kids.",
+    "durationHrs": 1.25, "priceFrom": null,
+    "summary": "The direct airport train from Narita to Tokyo, Shinjuku and Shibuya — all reserved seats.",
+    "tncDays": [1, 13],
+    "booking": {
+      "level": "recommended",
+      "rule": { "type": "recommended", "daysBefore": 0 },
+      "sellOutRisk": "low",
+      "links": [
+        { "label": "Official (JR East)", "url": "https://www.jreast.co.jp/multi/en/nex/", "kind": "official" },
+        { "label": "Klook", "url": "https://www.klook.com/search/result/?query=Narita%20Express", "kind": "affiliate", "partner": "klook" }
+      ]
+    },
+    "lastVerified": "2026-11-14"
+  },
+  {
+    "slug": "shinkansen-tokyo-kyoto",
+    "name": "Shinkansen Tokyo ⇄ Kyoto",
+    "nameLocal": "東海道新幹線",
+    "city": "Day trips",
+    "categories": ["Getting around"],
+    "kidFriendly": true,
+    "kidNotes": "Under-6s ride free on a lap; book them a seat if you want the row. Sit on the right (seat E) Tokyo→Kyoto for Mt Fuji.",
+    "durationHrs": 2.25, "priceFrom": null,
+    "summary": "The bullet train between Tokyo and Kyoto in about 2h15m — reserve a full row, grab an ekiben, and watch for Fuji.",
+    "tncTip": "Book through smartEX for the lowest fares — Hayatoku discounts apply if you book 7 or 21 days ahead. Reserve seats with oversized-luggage space if you're not forwarding bags.",
+    "tncDays": [6, 12],
+    "booking": {
+      "level": "essential",
+      "rule": { "type": "recommended", "daysBefore": 21 },
+      "sellOutRisk": "medium",
+      "howTo": "Seats can be reserved up to a year ahead on smartEX. Book 21+ days out for Hayatoku 21 fares.",
+      "links": [
+        { "label": "smartEX (official)", "url": "https://smart-ex.jp/en/", "kind": "official" },
+        { "label": "Klook", "url": "https://www.klook.com/search/result/?query=shinkansen%20tokyo%20kyoto", "kind": "affiliate", "partner": "klook" }
+      ]
+    },
+    "lastVerified": "2026-11-14",
+    "sourceUrl": "https://smart-ex.jp/en/"
+  },
+  {
+    "slug": "kiyomizu-dera",
+    "name": "Kiyomizu-dera",
+    "nameLocal": "清水寺",
+    "city": "Kyoto", "area": "Higashiyama",
+    "categories": ["Culture & temples", "Views"],
+    "kidFriendly": true,
+    "kidNotes": "Steep approach — a carrier beats a stroller here.",
+    "durationHrs": 1.5, "priceFrom": 500, "priceNote": "Adult",
+    "summary": "The wooden stage hanging over a sea of autumn maples — Kyoto's most iconic temple.",
+    "tncTip": "'Early' means 8:00. Tour buses land around 9:30 and the stage jams by 10:30.",
+    "tncDays": [7],
+    "booking": {
+      "level": "none",
+      "rule": { "type": "none" },
+      "sellOutRisk": "low",
+      "links": [{ "label": "Official site", "url": "https://www.kiyomizudera.or.jp/en/", "kind": "official" }]
+    },
+    "lastVerified": "2026-11-14"
+  },
+  {
+    "slug": "sannenzaka-ninenzaka",
+    "name": "Sannenzaka & Ninenzaka",
+    "nameLocal": "三年坂・二年坂",
+    "city": "Kyoto", "area": "Higashiyama",
+    "categories": ["Culture & temples", "Shopping", "Food"],
+    "kidFriendly": true,
+    "durationHrs": 1.5, "priceFrom": 0,
+    "summary": "Stone-stepped lanes of teahouses and craft shops winding down from Kiyomizu-dera.",
+    "tncDays": [7],
+    "booking": { "level": "none", "rule": { "type": "none" }, "sellOutRisk": "low", "links": [] },
+    "lastVerified": "2026-11-14"
+  },
+  {
+    "slug": "yasaka-shrine",
+    "name": "Yasaka Shrine",
+    "nameLocal": "八坂神社",
+    "city": "Kyoto", "area": "Gion",
+    "categories": ["Culture & temples"],
+    "kidFriendly": true,
+    "durationHrs": 1, "priceFrom": 0,
+    "summary": "The vermilion gateway to Gion, lit with hundreds of lanterns at night.",
+    "tncDays": [7],
+    "booking": { "level": "none", "rule": { "type": "none" }, "sellOutRisk": "low", "links": [] },
+    "lastVerified": "2026-11-14"
+  },
+  {
+    "slug": "gion",
+    "name": "Gion at dusk",
+    "nameLocal": "祇園",
+    "city": "Kyoto", "area": "Gion",
+    "categories": ["Culture & temples"],
+    "kidFriendly": true,
+    "kidNotes": "Some private lanes ban photography — look for the signs and keep it respectful.",
+    "durationHrs": 1.5, "priceFrom": 0,
+    "summary": "Hanamikoji and Shirakawa's willow-lined canal as the lanterns come on.",
+    "tncDays": [6],
+    "booking": { "level": "none", "rule": { "type": "none" }, "sellOutRisk": "low", "links": [] },
+    "lastVerified": "2026-11-14"
+  },
+  {
+    "slug": "nishiki-market",
+    "name": "Nishiki Market",
+    "nameLocal": "錦市場",
+    "city": "Kyoto", "area": "Downtown",
+    "categories": ["Food", "Shopping"],
+    "kidFriendly": true,
+    "kidNotes": "Narrow and busy — eating while walking is discouraged, so stop at stalls with standing space.",
+    "durationHrs": 1.5, "priceFrom": 0,
+    "summary": "'Kyoto's Kitchen' — tamagoyaki, mochi, pickles and matcha everything along a covered lane.",
+    "tncDays": [6],
+    "booking": {
+      "level": "none",
+      "rule": { "type": "none" },
+      "sellOutRisk": "low",
+      "links": [{ "label": "Official site", "url": "https://www.kyoto-nishiki.or.jp/", "kind": "official" }]
+    },
+    "lastVerified": "2026-11-14"
+  },
+  {
+    "slug": "arashiyama-bamboo-grove",
+    "name": "Arashiyama Bamboo Grove",
+    "nameLocal": "嵐山竹林の小径",
+    "city": "Kyoto", "area": "Arashiyama",
+    "categories": ["Nature"],
+    "kidFriendly": true,
+    "durationHrs": 1, "priceFrom": 0,
+    "summary": "Towering green stalks creaking in the wind — magical when empty.",
+    "tncTip": "Empty at 8:00, a river of people by 10:00. Walk it first, then step straight into Tenryu-ji.",
+    "tncDays": [8],
+    "booking": { "level": "none", "rule": { "type": "none" }, "sellOutRisk": "low", "links": [] },
+    "lastVerified": "2026-11-14"
+  },
+  {
+    "slug": "tenryu-ji",
+    "name": "Tenryu-ji Temple garden",
+    "nameLocal": "天龍寺",
+    "city": "Kyoto", "area": "Arashiyama",
+    "categories": ["Culture & temples", "Nature"],
+    "kidFriendly": true,
+    "durationHrs": 1, "priceFrom": 500, "priceNote": "Garden",
+    "summary": "A UNESCO-listed Zen garden borrowing the Arashiyama mountains as its backdrop — opens at 8:30.",
+    "tncDays": [8],
+    "booking": {
+      "level": "none",
+      "rule": { "type": "none" },
+      "sellOutRisk": "low",
+      "links": [{ "label": "Official site", "url": "https://www.tenryuji.com/en/", "kind": "official" }]
+    },
+    "lastVerified": "2026-11-14"
+  },
+  {
+    "slug": "arashiyama-kimono-rental",
+    "name": "Kimono rental in Arashiyama",
+    "nameLocal": "着物レンタル",
+    "city": "Kyoto", "area": "Arashiyama",
+    "categories": ["Experiences", "Culture & temples"],
+    "kidFriendly": true,
+    "kidNotes": "Children's kimono from ~90cm. Pack a spare pair of socks — tabi and puddles don't mix.",
+    "durationHrs": 4, "priceFrom": null,
+    "summary": "Dress the whole family and shoot by the Kimono Forest, the Togetsukyo bridge and the Nonomiya lanes.",
+    "tncDays": [8],
+    "booking": {
+      "level": "recommended",
+      "rule": { "type": "recommended", "daysBefore": 14 },
+      "sellOutRisk": "medium",
+      "links": [
+        { "label": "Klook", "url": "https://www.klook.com/search/result/?query=kimono%20rental%20arashiyama", "kind": "affiliate", "partner": "klook" },
+        { "label": "GetYourGuide", "url": "https://www.getyourguide.com/s/?q=kimono%20rental%20kyoto", "kind": "affiliate", "partner": "getyourguide" }
+      ]
+    },
+    "lastVerified": "2026-11-14"
+  },
+  {
+    "slug": "fushimi-inari",
+    "name": "Fushimi Inari Taisha",
+    "nameLocal": "伏見稲荷大社",
+    "city": "Kyoto", "area": "Fushimi",
+    "categories": ["Culture & temples", "Nature"],
+    "kidFriendly": true,
+    "kidNotes": "You don't need to summit — the first 20–30 minutes of gates are the most photogenic.",
+    "durationHrs": 2, "priceFrom": 0,
+    "summary": "Thousands of vermilion torii gates winding up Mt Inari — open 24 hours and free.",
+    "tncTip": "Arrive by 7:30 — it's five minutes from Kyoto Station on the JR Nara line, and you can ride the same line on to Nara afterwards.",
+    "tncDays": [11],
+    "booking": {
+      "level": "none",
+      "rule": { "type": "none" },
+      "sellOutRisk": "low",
+      "links": [{ "label": "Official site", "url": "https://inari.jp/en/", "kind": "official" }]
+    },
+    "lastVerified": "2026-11-14"
+  },
+  {
+    "slug": "nintendo-museum",
+    "name": "Nintendo Museum",
+    "nameLocal": "ニンテンドーミュージアム",
+    "city": "Kyoto", "area": "Uji",
+    "categories": ["Anime & games", "Experiences"],
+    "kidFriendly": true,
+    "durationHrs": 3, "priceFrom": 3300, "priceNote": "Adult",
+    "summary": "Nintendo's own museum in Uji — 130 years of play, from hanafuda cards to giant interactive controllers.",
+    "booking": {
+      "level": "essential",
+      "rule": { "type": "lottery", "entryMonthsBefore": 3, "note": "Leftover tickets may be sold first-come after the lottery." },
+      "sellOutRisk": "extreme",
+      "howTo": "Tickets are allocated by lottery about three months ahead; any remaining tickets go on general sale later. Requires a Nintendo Account.",
+      "links": [{ "label": "Official tickets", "url": "https://museum.nintendo.com/en/", "kind": "official" }]
+    },
+    "lastVerified": "2026-11-14",
+    "sourceUrl": "https://museum.nintendo.com/en/"
+  },
+  {
+    "slug": "kyoto-tea-ceremony",
+    "name": "Tea ceremony in Kyoto",
+    "nameLocal": "茶道体験",
+    "city": "Kyoto",
+    "categories": ["Culture & temples", "Experiences"],
+    "kidFriendly": true,
+    "kidNotes": "Choose a family-friendly class (45–60 min) where kids can whisk their own matcha.",
+    "durationHrs": 1, "priceFrom": null,
+    "summary": "A quiet hour learning the way of tea — whisking matcha and wagashi sweets in a traditional tea room.",
+    "booking": {
+      "level": "recommended",
+      "rule": { "type": "recommended", "daysBefore": 7 },
+      "sellOutRisk": "medium",
+      "links": [
+        { "label": "Klook", "url": "https://www.klook.com/search/result/?query=kyoto%20tea%20ceremony", "kind": "affiliate", "partner": "klook" },
+        { "label": "GetYourGuide", "url": "https://www.getyourguide.com/s/?q=kyoto%20tea%20ceremony", "kind": "affiliate", "partner": "getyourguide" }
+      ]
+    },
+    "lastVerified": "2026-11-14"
+  },
+  {
+    "slug": "universal-studios-japan",
+    "name": "Universal Studios Japan & Super Nintendo World",
+    "nameLocal": "ユニバーサル・スタジオ・ジャパン",
+    "city": "Osaka", "area": "Universal City",
+    "categories": ["Theme parks", "Anime & games"],
+    "kidFriendly": true,
+    "kidNotes": "Under-4s free. Mario Kart has a height minimum of 107cm; Yoshi's Adventure suits little ones.",
+    "durationHrs": 10, "priceFrom": 8600, "priceNote": "Adult 1-Day Studio Pass, dynamic pricing",
+    "summary": "Mario Kart, Donkey Kong Country and Hogwarts in one park. Super Nintendo World needs timed entry — an Express Pass guarantees it.",
+    "booking": {
+      "level": "essential",
+      "rule": { "type": "monthsBefore", "months": 3 },
+      "sellOutRisk": "high",
+      "howTo": "Studio Passes and Express Passes are released ~3 months ahead, one date at a time. Express Passes with Super Nintendo World timed entry sell out first.",
+      "links": [
+        { "label": "Official tickets", "url": "https://www.usj.co.jp/web/en/us/tickets", "kind": "official" },
+        { "label": "Klook", "url": "https://www.klook.com/search/result/?query=Universal%20Studios%20Japan%20express", "kind": "affiliate", "partner": "klook" }
+      ]
+    },
+    "lastVerified": "2026-11-14",
+    "sourceUrl": "https://www.usj.co.jp/company/company_e/news/2025/0421/"
+  },
+  {
+    "slug": "pokemon-cafe-osaka",
+    "name": "Pokémon Café Osaka",
+    "nameLocal": "ポケモンカフェ 大阪",
+    "city": "Osaka", "area": "Shinsaibashi",
+    "categories": ["Food", "Anime & games"],
+    "kidFriendly": true,
+    "durationHrs": 1.5, "priceFrom": null,
+    "summary": "The Osaka sister café inside Daimaru Shinsaibashi — often a touch easier to book than Tokyo.",
+    "booking": {
+      "level": "essential",
+      "rule": { "type": "daysBefore", "days": 31, "time": "18:00" },
+      "sellOutRisk": "extreme",
+      "howTo": "Same system as Tokyo: 31 days ahead at 6:00 PM JST.",
+      "links": [{ "label": "Official reservations", "url": "https://www.pokemon-cafe.jp/en/", "kind": "official" }]
+    },
+    "lastVerified": "2026-11-14",
+    "sourceUrl": "https://www.pokemon-cafe.jp/en/cafe/faq/"
+  },
+  {
+    "slug": "dotonbori",
+    "name": "Dotonbori",
+    "nameLocal": "道頓堀",
+    "city": "Osaka", "area": "Namba",
+    "categories": ["Food", "Shopping"],
+    "kidFriendly": true,
+    "durationHrs": 2.5, "priceFrom": 0,
+    "summary": "Neon canals, the Glico running man, takoyaki and Don Quijote for a tax-free skincare haul.",
+    "tncDays": [10],
+    "booking": { "level": "none", "rule": { "type": "none" }, "sellOutRisk": "low", "links": [] },
+    "lastVerified": "2026-11-14"
+  },
+  {
+    "slug": "shinsaibashi-amerimura",
+    "name": "Shinsaibashi & Amerimura",
+    "nameLocal": "心斎橋・アメ村",
+    "city": "Osaka", "area": "Shinsaibashi",
+    "categories": ["Shopping"],
+    "kidFriendly": true,
+    "durationHrs": 2.5, "priceFrom": 0,
+    "summary": "A 600m covered shopping arcade, then Osaka's streetwear and sneaker district next door.",
+    "tncDays": [10],
+    "booking": { "level": "none", "rule": { "type": "none" }, "sellOutRisk": "low", "links": [] },
+    "lastVerified": "2026-11-14"
+  },
+  {
+    "slug": "osaka-castle",
+    "name": "Osaka Castle Park",
+    "nameLocal": "大阪城",
+    "city": "Osaka", "area": "Chuo",
+    "categories": ["Culture & temples", "Nature"],
+    "kidFriendly": true,
+    "durationHrs": 2, "priceFrom": 600, "priceNote": "Castle tower, adult",
+    "summary": "The gold-trimmed castle keep above moats and gingko trees blazing yellow in late autumn.",
+    "tncDays": [10],
+    "booking": {
+      "level": "none",
+      "rule": { "type": "none" },
+      "sellOutRisk": "low",
+      "links": [{ "label": "Official site", "url": "https://www.osakacastle.net/english/", "kind": "official" }]
+    },
+    "lastVerified": "2026-11-14"
+  },
+  {
+    "slug": "kaiyukan",
+    "name": "Osaka Aquarium Kaiyukan",
+    "nameLocal": "海遊館",
+    "city": "Osaka", "area": "Tempozan",
+    "categories": ["Nature", "Experiences"],
+    "kidFriendly": true,
+    "kidNotes": "Spirals down around a giant central tank — whale sharks at stroller height.",
+    "durationHrs": 2.5, "priceFrom": null,
+    "summary": "One of the world's great aquariums, built around a nine-metre-deep Pacific tank with whale sharks.",
+    "booking": {
+      "level": "recommended",
+      "rule": { "type": "recommended", "daysBefore": 3 },
+      "sellOutRisk": "low",
+      "links": [
+        { "label": "Official site", "url": "https://www.kaiyukan.com/language/eng/", "kind": "official" },
+        { "label": "Klook", "url": "https://www.klook.com/search/result/?query=Kaiyukan", "kind": "affiliate", "partner": "klook" }
+      ]
+    },
+    "lastVerified": "2026-11-14"
+  },
+  {
+    "slug": "nara-park-todaiji",
+    "name": "Nara Park & Todai-ji",
+    "nameLocal": "奈良公園・東大寺",
+    "city": "Nara",
+    "categories": ["Culture & temples", "Nature"],
+    "kidFriendly": true,
+    "kidNotes": "Deer bow for crackers — and nibble once they're gone. Let kids hand them over quickly, then show empty palms.",
+    "durationHrs": 4, "priceFrom": 800, "priceNote": "Todai-ji Great Buddha Hall",
+    "summary": "Bowing deer and the 15-metre Great Buddha inside one of the world's largest wooden buildings.",
+    "tncTip": "Feed the deer early, before they're overfed and grumpy. Inside Todai-ji, small kids can crawl through the pillar 'Buddha's nostril' for good luck.",
+    "tncDays": [11],
+    "booking": {
+      "level": "none",
+      "rule": { "type": "none" },
+      "sellOutRisk": "low",
+      "links": [{ "label": "Todai-ji", "url": "https://www.todaiji.or.jp/en/", "kind": "official" }]
+    },
+    "lastVerified": "2026-11-14"
+  },
+  {
+    "slug": "naruto-shinobi-zato",
+    "name": "NARUTO & BORUTO Shinobi-Zato",
+    "nameLocal": "ニジゲンノモリ",
+    "city": "Awaji", "area": "Nijigen no Mori",
+    "categories": ["Anime & games", "Theme parks"],
+    "kidFriendly": true,
+    "kidNotes": "Some ninja trials have age/height limits — the easier missions suit 5+ with a parent.",
+    "durationHrs": 2.5, "priceFrom": null,
+    "summary": "Ninja trials through a hidden-leaf village, Ichiraku Ramen and the Hokage Rock — inside Awaji's Nijigen no Mori anime park.",
+    "tncTip": "Get there for opening and do this first while energy is high, then ease into the Crayon Shin-chan park after lunch.",
+    "tncDays": [9],
+    "booking": {
+      "level": "recommended",
+      "rule": { "type": "recommended", "daysBefore": 7 },
+      "sellOutRisk": "low",
+      "howTo": "Buy online in advance for smoother entry; premium ticket bundles are limited.",
+      "links": [
+        { "label": "Official site", "url": "https://nijigennomori.com/en/", "kind": "official" },
+        { "label": "Klook", "url": "https://www.klook.com/search/result/?query=Nijigen%20no%20Mori", "kind": "affiliate", "partner": "klook" }
+      ]
+    },
+    "lastVerified": "2026-11-14",
+    "sourceUrl": "https://nijigennomori.com/en/"
+  },
+  {
+    "slug": "crayon-shinchan-park",
+    "name": "Crayon Shin-chan Adventure Park",
+    "nameLocal": "クレヨンしんちゃん アドベンチャーパーク",
+    "city": "Awaji", "area": "Nijigen no Mori",
+    "categories": ["Anime & games", "Theme parks"],
+    "kidFriendly": true,
+    "kidNotes": "Kid-scaled obstacle courses and ziplines — the highlight for our 3- and 5-year-old.",
+    "durationHrs": 2, "priceFrom": null,
+    "summary": "Outdoor adventure courses themed on the beloved anime family — built for small adventurers.",
+    "tncDays": [9],
+    "booking": {
+      "level": "recommended",
+      "rule": { "type": "recommended", "daysBefore": 3 },
+      "sellOutRisk": "low",
+      "links": [{ "label": "Official site", "url": "https://nijigennomori.com/en/", "kind": "official" }]
+    },
+    "lastVerified": "2026-11-14"
+  },
+  {
+    "slug": "godzilla-interception",
+    "name": "Godzilla Interception Operation Awaji",
+    "nameLocal": "ゴジラ迎撃作戦",
+    "city": "Awaji", "area": "Nijigen no Mori",
+    "categories": ["Anime & games", "Experiences"],
+    "kidFriendly": true,
+    "kidNotes": "Zipline into Godzilla's mouth has weight/height limits; the life-size Godzilla is the photo for little ones.",
+    "durationHrs": 1.5, "priceFrom": null,
+    "summary": "A life-size Godzilla, a zipline straight into its jaws, and a Godzilla museum. Dragon Quest Island next door is the alternative.",
+    "tncDays": [9],
+    "booking": {
+      "level": "recommended",
+      "rule": { "type": "recommended", "daysBefore": 3 },
+      "sellOutRisk": "low",
+      "links": [{ "label": "Official site", "url": "https://nijigennomori.com/en/", "kind": "official" }]
+    },
+    "lastVerified": "2026-11-14"
+  },
+  {
+    "slug": "hakone-day-trip",
+    "name": "Hakone day trip",
+    "nameLocal": "箱根",
+    "city": "Day trips",
+    "categories": ["Nature", "Views"],
+    "kidFriendly": true,
+    "kidNotes": "The ropeway over volcanic Owakudani and the pirate ship on Lake Ashi are pure joy for kids.",
+    "durationHrs": 10, "priceFrom": null,
+    "summary": "Pirate ships, a volcanic ropeway, black eggs and — on clear days — Mt Fuji over Lake Ashi.",
+    "booking": {
+      "level": "recommended",
+      "rule": { "type": "recommended", "daysBefore": 3 },
+      "sellOutRisk": "low",
+      "links": [
+        { "label": "Hakone Freepass (official)", "url": "https://www.hakonenavi.jp/international/en/", "kind": "official" },
+        { "label": "Klook", "url": "https://www.klook.com/search/result/?query=hakone%20freepass", "kind": "affiliate", "partner": "klook" }
+      ]
+    },
+    "lastVerified": "2026-11-14"
+  },
+  {
+    "slug": "mt-fuji-kawaguchiko",
+    "name": "Mt Fuji & Lake Kawaguchiko",
+    "nameLocal": "河口湖",
+    "city": "Day trips",
+    "categories": ["Nature", "Views"],
+    "kidFriendly": true,
+    "durationHrs": 10, "priceFrom": null,
+    "summary": "Fuji reflected in the lake, the Chureito Pagoda and autumn leaves — easiest as a guided bus day trip with kids.",
+    "booking": {
+      "level": "recommended",
+      "rule": { "type": "recommended", "daysBefore": 7 },
+      "sellOutRisk": "medium",
+      "links": [
+        { "label": "Klook", "url": "https://www.klook.com/search/result/?query=mt%20fuji%20day%20trip", "kind": "affiliate", "partner": "klook" },
+        { "label": "GetYourGuide", "url": "https://www.getyourguide.com/s/?q=mt%20fuji%20day%20trip", "kind": "affiliate", "partner": "getyourguide" }
+      ]
+    },
+    "lastVerified": "2026-11-14"
+  }
+]

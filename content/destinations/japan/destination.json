@@ -1,0 +1,59 @@
+{
+  "slug": "japan",
+  "name": "Japan",
+  "nameLocal": "日本",
+  "tagline": "Tokyo to Kyoto, with a three- and five-year-old in tow.",
+  "intro": "Thirteen days of temples, theme parks, ramen and ninja trials — planned around little legs, early nights and the very real art of getting tickets in Japan. Everything we booked, when we booked it, and how you can do it too.",
+  "status": "live",
+  "timezone": "Asia/Tokyo",
+  "timezoneLabel": "JST",
+  "currency": "JPY",
+  "currencySymbol": "¥",
+  "ourTrip": { "start": "2026-11-24", "end": "2026-12-07", "label": "November 2026" },
+  "cities": ["Tokyo", "Kyoto", "Osaka", "Nara", "Awaji", "Day trips"],
+  "categories": [
+    "Theme parks",
+    "Anime & games",
+    "Culture & temples",
+    "Food",
+    "Views",
+    "Shopping",
+    "Nature",
+    "Experiences",
+    "Getting around"
+  ],
+  "essentials": [
+    {
+      "title": "Stay connected",
+      "body": "An eSIM is the easiest way to have maps and translation from the moment you land. Install it before you fly and switch it on at Narita.",
+      "links": [
+        { "label": "Compare Japan eSIMs", "url": "https://www.klook.com/search/result/?query=japan%20esim", "kind": "affiliate", "partner": "klook" }
+      ]
+    },
+    {
+      "title": "IC card (Suica / PASMO / ICOCA)",
+      "body": "Tap-and-go for trains, buses, konbini and vending machines. Add a Suica to Apple Wallet before you leave, or buy a physical card at the airport. Children 6+ pay child fares — under-6s ride free with an adult.",
+      "links": [
+        { "label": "Suica in Apple Wallet", "url": "https://www.jreast.co.jp/multi/en/pass/suica.html", "kind": "official" }
+      ]
+    },
+    {
+      "title": "JR Pass vs single tickets",
+      "body": "After the 2023 price rise, a simple Tokyo–Kyoto return is usually cheaper on single Shinkansen tickets booked through smartEX than a 7-day JR Pass. Run your own route through a fare calculator before buying.",
+      "links": [
+        { "label": "smartEX (official)", "url": "https://smart-ex.jp/en/", "kind": "official" },
+        { "label": "JR Pass options", "url": "https://www.klook.com/search/result/?query=JR%20pass", "kind": "affiliate", "partner": "klook" }
+      ]
+    },
+    {
+      "title": "Travelling with little ones",
+      "body": "A compact, fold-in-one-hand stroller is essential — stations have lifts but they can be a walk away. Most department stores have superb baby rooms. Konbini onigiri and bananas saved us more than once.",
+      "links": []
+    },
+    {
+      "title": "Luggage forwarding (takkyubin)",
+      "body": "Send big suitcases hotel-to-hotel between Tokyo and Kyoto and ride the Shinkansen with just a day bag. Book at your hotel front desk the day before.",
+      "links": []
+    }
+  ]
+}
