@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import { Emblem } from "@/components/brand/Emblem";
 import { Frame } from "@/components/brand/Frame";
 import { Reveal } from "@/components/ui/Reveal";
 import { site } from "@/content/site";
@@ -20,7 +20,7 @@ export default function AboutPage() {
     <div className="mx-auto max-w-7xl px-5 pt-16 sm:px-8 sm:pt-24">
       <div className="grid gap-14 lg:grid-cols-12">
         <Reveal className="lg:col-span-5">
-          <Frame alt="The November Couple family portrait" label="TNC" sublabel="Family portrait" seed={3} className="aspect-[4/5]" sizes="(max-width: 1024px) 100vw, 40vw" />
+          <Frame alt="The November Couple family portrait" label="Family portrait — natural light" seed={3} className="aspect-[4/5]" sizes="(max-width: 1024px) 100vw, 40vw" />
         </Reveal>
         <div className="lg:col-span-6 lg:col-start-7 lg:pt-10">
           <p className="eyebrow text-stone">About us</p>
@@ -57,7 +57,7 @@ export default function AboutPage() {
         </div>
       </div>
       <div className="mt-28 flex justify-center">
-        <Image src="/brand/logo-transparent.png" alt="" width={120} height={120} className="opacity-80" />
+        <Emblem size={140} />
       </div>
     </div>
   );

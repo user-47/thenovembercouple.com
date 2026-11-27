@@ -51,7 +51,6 @@ Put images in `public/images/` and set `"image": "/images/xyz.jpg"` on an activi
    - On Vercel **Pro**, add a `vercel.json` with `{"crons":[{"path":"/api/cron/reminders","schedule":"*/10 * * * *"}]}`. Vercel sends the secret automatically.
    - On the **Hobby** plan, crons run at most daily, which is too coarse for "opens in 1 hour" reminders. Use a free external scheduler (e.g. cron-job.org, or a GitHub Actions schedule) to call the URL with the header instead.
 5. Optional extras:
-   - `BEHOLD_FEED_ID` shows the live Instagram grid (via behold.so).
    - The Turnstile keys add spam protection to the brand form.
    - The affiliate IDs are appended automatically to outbound links through `/go/...`.
 

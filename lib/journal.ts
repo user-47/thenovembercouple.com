@@ -9,6 +9,8 @@ export interface PostMeta {
   date: string;
   excerpt: string;
   category: string;
+  /** Collection this post belongs to — a slug from content/pillars.ts. */
+  pillar?: string;
   destination?: string;
   cover?: string;
   coverLabel?: string;
@@ -16,22 +18,24 @@ export interface PostMeta {
 
 const DIR = path.join(process.cwd(), "content", "journal");
 
-export function getAllPosts(): PostMeta[] {
+function read(file: string) {
+  const { data, content } = matter(fs.readFileSync(path.join(DIR, file), "utf8"));
+  const meta: PostMeta = { slug: file.replace(/\.mdx$/, ""), ...(data as Omit<PostMeta, "slug">), date: String(data.date) };
+  return { meta, content };
+}
+
+export function getAllPosts(pillar?: string): PostMeta[] {
   if (!fs.existsSync(DIR)) return [];
   return fs
     .readdirSync(DIR)
     .filter((f) => f.endsWith(".mdx"))
-    .map((f) => {
-      const { data } = matter(fs.readFileSync(path.join(DIR, f), "utf8"));
-      return { slug: f.replace(/\.mdx$/, ""), ...(data as Omit<PostMeta, "slug">), date: String(data.date) };
-    })
+    .map((f) => read(f).meta)
+    .filter((p) => !pillar || p.pillar === pillar)
     .sort((a, b) => b.date.localeCompare(a.date));
 }
 
 export function getPost(slug: string): { meta: PostMeta; content: string } | null {
   if (!/^[a-z0-9-]+$/.test(slug)) return null;
-  const file = path.join(DIR, `${slug}.mdx`);
-  if (!fs.existsSync(file)) return null;
-  const { data, content } = matter(fs.readFileSync(file, "utf8"));
-  return { meta: { slug, ...(data as Omit<PostMeta, "slug">), date: String(data.date) }, content };
+  if (!fs.existsSync(path.join(DIR, `${slug}.mdx`))) return null;
+  return read(`${slug}.mdx`);
 }

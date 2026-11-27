@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { Arc } from "@/components/brand/Arc";
+import { Frame } from "@/components/brand/Frame";
+import { getPillar } from "@/content/pillars";
 import { formatYmd } from "@/lib/dates";
 import { getAllPosts, getPost } from "@/lib/journal";
 
@@ -12,7 +13,14 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const post = getPost((await params).slug);
-  return post ? { title: post.meta.title, description: post.meta.excerpt, openGraph: { type: "article" } } : {};
+  if (!post) return {};
+  const { meta } = post;
+  return {
+    title: meta.title,
+    description: meta.excerpt,
+    alternates: { canonical: `/journal/${meta.slug}` },
+    openGraph: { type: "article", title: meta.title, description: meta.excerpt, publishedTime: meta.date, ...(meta.cover ? { images: [meta.cover] } : {}) },
+  };
 }
 
 const components = {
@@ -29,22 +37,40 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   const post = getPost((await params).slug);
   if (!post) notFound();
   const { meta, content } = post;
+  const pillar = meta.pillar ? getPillar(meta.pillar) : undefined;
   return (
-    <article className="mx-auto max-w-2xl px-5 pt-16 sm:pt-24">
-      <header className="text-center">
-        <p className="eyebrow text-stone">
+    <article className="px-5 pt-12 sm:px-8 md:pt-20">
+      <header className="mx-auto max-w-3xl text-center">
+        <p className="eyebrow text-bronze">
+          {pillar && (
+            <>
+              <Link href={`/${pillar.slug}`} className="link-underline">
+                {pillar.title}
+              </Link>
+              {" · "}
+            </>
+          )}
           {meta.category} · {formatYmd(meta.date, { weekday: false, year: true })}
         </p>
-        <h1 className="display mt-6 text-5xl sm:text-6xl">{meta.title}</h1>
-        <Arc className="mx-auto mt-8" width={160} />
+        <h1 className="display mt-6 text-balance text-5xl sm:text-6xl">{meta.title}</h1>
+        <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink/75">{meta.excerpt}</p>
       </header>
-      <div className="mt-12">
+      <Frame
+        src={meta.cover}
+        alt={meta.title}
+        label={meta.coverLabel ?? meta.title}
+        seed={2}
+        priority
+        className="mx-auto mt-12 aspect-[16/9] max-w-5xl rounded-sm"
+        sizes="(max-width: 1024px) 100vw, 1024px"
+      />
+      <div className="mx-auto mt-12 max-w-2xl">
         <MDXRemote source={content} components={components} />
       </div>
       {meta.destination && (
-        <div className="mt-16 border-t border-rule pt-10 text-center">
-          <Link href={`/trips/${meta.destination}/planner`} className="btn btn-primary">
-            Open the trip planner
+        <div className="mx-auto mt-16 max-w-2xl border-t border-rule pt-10 text-center">
+          <Link href={`/trips/${meta.destination}`} className="btn btn-primary">
+            Read the full trip story
           </Link>
         </div>
       )}

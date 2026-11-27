@@ -163,7 +163,7 @@ export function Planner({
       </div>
 
       {/* Tabs */}
-      <div ref={tabsRef} className="sticky top-16 z-40 scroll-mt-16 border-b border-rule bg-linen/95 backdrop-blur sm:top-20 sm:scroll-mt-20">
+      <div ref={tabsRef} className="sticky top-16 z-40 scroll-mt-16 border-b border-rule bg-linen/95 backdrop-blur">
         <div role="tablist" aria-label="Planner" className="no-scrollbar mx-auto flex max-w-7xl gap-8 overflow-x-auto px-5 sm:px-8">
           {(
             [
