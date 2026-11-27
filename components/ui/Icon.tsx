@@ -37,6 +37,12 @@ const paths = {
       <circle cx="17.25" cy="6.75" r="0.6" fill="currentColor" />
     </>
   ),
+  youtube: (
+    <>
+      <rect x="2.5" y="5.5" width="19" height="13" rx="4" />
+      <path d="m10.25 9.25 4.5 2.75-4.5 2.75Z" />
+    </>
+  ),
   arrow: <path d="M4.5 12h15M13.5 6l6 6-6 6" />,
   image: (
     <>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Frame } from "@/components/brand/Frame";
 import { Collaboration } from "@/components/site/Collaboration";
 import { ExploreGrid } from "@/components/site/ExploreGrid";
+import { InstagramSection } from "@/components/site/InstagramSection";
 import { StoryGrid } from "@/components/site/StoryCard";
 import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/ui/Reveal";
@@ -11,8 +12,13 @@ import { site } from "@/content/site";
 import { getLatestTrip, tripCities } from "@/lib/destinations";
 import { getAllPosts } from "@/lib/journal";
 
-/** Real hero photo goes here, e.g. "/images/hero.jpg". */
-const heroImage: string | undefined = undefined;
+/** Hero photo. Swap `src` for another shot in public/images/ (set it to undefined for the placeholder). */
+const heroImage = {
+  src: "/images/tokyo/asakusa-lantern-restaurant.jpg" as string | undefined,
+  alt: "A restaurant covered in glowing red lanterns in Asakusa, Tokyo, at night",
+  caption: "Asakusa, Tokyo",
+  position: "42% 40%",
+};
 
 export default function Home() {
   const latest = getLatestTrip();
@@ -20,18 +26,26 @@ export default function Home() {
 
   return (
     <>
-      {/* B. Hero */}
-      <section className="relative overflow-hidden lg:min-h-[calc(100svh-7rem)]">
-        <div className="relative aspect-[4/5] sm:aspect-[16/10] lg:absolute lg:inset-0 lg:aspect-auto">
-          <Frame src={heroImage} alt="The November Couple on the road" quiet priority sizes="100vw" seed={1} className="h-full w-full" />
-          <div className="absolute inset-0 hidden bg-gradient-to-r from-linen via-linen/85 to-transparent lg:block lg:via-35% lg:to-70%" />
-          {!heroImage && (
-            <p className="absolute bottom-4 right-5 rounded-full bg-linen/80 px-3 py-1 text-[0.68rem] text-ink/70 sm:right-8">
-              Photo placeholder · Hero — Japan suggested
+      {/* B. Hero — photo first on small screens, beside the headline on large ones */}
+      <section className="lg:grid lg:min-h-[calc(100svh-7rem)] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
+        <div className="relative aspect-[4/5] sm:aspect-[16/10] lg:col-start-2 lg:row-start-1 lg:aspect-auto">
+          <Frame
+            src={heroImage.src}
+            alt={heroImage.alt}
+            label="Hero — Japan suggested"
+            position={heroImage.position}
+            priority
+            sizes="(max-width: 1024px) 100vw, 55vw"
+            seed={1}
+            className="h-full w-full"
+          />
+          {heroImage.src && (
+            <p className="absolute bottom-4 left-5 rounded-full bg-ink/55 px-3 py-1 text-[0.68rem] tracking-wide text-linen backdrop-blur-sm sm:left-8 lg:left-6">
+              {heroImage.caption}
             </p>
           )}
         </div>
-        <div className="relative mx-auto max-w-7xl px-5 py-14 sm:px-8 lg:flex lg:min-h-[calc(100svh-7rem)] lg:items-center lg:py-24">
+        <div className="px-5 py-14 sm:px-8 lg:col-start-1 lg:row-start-1 lg:flex lg:items-center lg:py-24 lg:pl-[max(2rem,calc((100vw-80rem)/2+2rem))] lg:pr-14">
           <div className="max-w-xl">
             <p className="eyebrow text-bronze">{site.tagline}</p>
             <h1 className="display mt-6 text-balance text-[clamp(2.75rem,6vw,5rem)] leading-[1.02]">Life is better experienced together.</h1>
@@ -51,7 +65,14 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 py-20 sm:px-8 md:py-28 lg:grid-cols-12 lg:gap-10">
           <Reveal className="relative mx-auto aspect-[10/9] w-full max-w-md lg:col-span-4">
             <Polaroid className="left-0 top-[4%] w-[56%] -rotate-[5deg]" label="The two of us, on the road" seed={0} />
-            <Polaroid className="right-0 top-0 w-[42%] rotate-[4deg]" label="A favourite place" seed={2} />
+            <Polaroid
+              className="right-0 top-0 w-[42%] rotate-[4deg]"
+              label="Lantern-lit street in Asakusa, Tokyo"
+              src="/images/tokyo/asakusa-lantern-street.jpg"
+              caption="Asakusa, Tokyo"
+              position="50% 45%"
+              seed={2}
+            />
             <Polaroid className="bottom-0 right-[10%] w-[40%] -rotate-[2deg]" label="A meal to remember" seed={3} />
           </Reveal>
           <div className="lg:col-span-4 lg:border-l lg:border-rule lg:pl-10">
@@ -106,8 +127,9 @@ export default function Home() {
             <Reveal className="lg:col-span-7" delay={0.1}>
               <Frame
                 src={latest.destination.coverImage}
-                alt={`Our ${latest.destination.name} trip`}
+                alt={latest.destination.coverImageAlt ?? `Our ${latest.destination.name} trip`}
                 label={`${latest.destination.name} — featured story image`}
+                position="50% 62%"
                 seed={1}
                 className="aspect-[4/3] rounded-sm lg:aspect-[16/11]"
                 sizes="(max-width: 1024px) 100vw, 60vw"
@@ -143,6 +165,11 @@ export default function Home() {
         </section>
       )}
 
+      {/* Instagram and YouTube */}
+      <div className="pt-24 md:pt-32">
+        <InstagramSection />
+      </div>
+
       {/* G. Collaboration — the newsletter (H) and footer (I) follow from the layout */}
       <div className="pt-24 md:pt-32">
         <Collaboration />
@@ -151,11 +178,25 @@ export default function Home() {
   );
 }
 
-function Polaroid({ className, label, seed }: { className: string; label: string; seed: number }) {
+function Polaroid({
+  className,
+  label,
+  seed,
+  src,
+  caption,
+  position,
+}: {
+  className: string;
+  label: string;
+  seed: number;
+  src?: string;
+  caption?: string;
+  position?: string;
+}) {
   return (
     <div className={`absolute bg-white p-2 pb-7 shadow-[0_18px_40px_-18px_rgba(33,26,22,0.35)] ${className}`}>
-      <Frame alt={label} seed={seed} quiet className="aspect-[4/5]" sizes="200px" />
-      <p className="absolute inset-x-2 bottom-1.5 truncate text-center text-[0.58rem] text-ink/45">Photo placeholder</p>
+      <Frame src={src} alt={label} seed={seed} quiet position={position} className="aspect-[4/5]" sizes="240px" />
+      <p className="absolute inset-x-2 bottom-1.5 truncate text-center text-[0.58rem] text-ink/45">{src ? caption : "Photo placeholder"}</p>
     </div>
   );
 }

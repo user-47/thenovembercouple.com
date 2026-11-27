@@ -22,6 +22,7 @@ export function Frame({
   sizes = "(max-width: 768px) 100vw, 33vw",
   priority = false,
   quiet = false,
+  position,
 }: {
   src?: string;
   alt: string;
@@ -34,11 +35,13 @@ export function Frame({
   priority?: boolean;
   /** Hide the caption, for small frames or ones overlaid with their own text. */
   quiet?: boolean;
+  /** CSS object-position for the photo's crop, e.g. "50% 60%". */
+  position?: string;
 }) {
   return (
     <div className={`relative overflow-hidden ${className}`}>
       {src ? (
-        <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover" />
+        <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover" style={position ? { objectPosition: position } : undefined} />
       ) : (
         <div role="img" aria-label={`Photo placeholder: ${alt}`} className={`absolute inset-0 bg-gradient-to-br ${tones[seed % tones.length]}`}>
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-ink/45">

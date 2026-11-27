@@ -38,7 +38,7 @@ export default async function PillarPage({ params }: { params: Promise<{ pillar:
           <h1 className="display mt-5 text-5xl md:text-7xl">{p.title}</h1>
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-ink/80">{p.description}</p>
         </div>
-        <Frame src={p.image} alt={p.title} label={`${p.title} — collection cover`} seed={pillars.indexOf(p)} className="aspect-[16/10] rounded-sm md:col-span-6" sizes="(max-width: 768px) 100vw, 50vw" priority />
+        <Frame src={p.image} alt={p.imageAlt ?? p.title} position={p.imagePosition} label={`${p.title} — collection cover`} seed={pillars.indexOf(p)} className="aspect-[16/10] rounded-sm md:col-span-6" sizes="(max-width: 768px) 100vw, 50vw" priority />
       </section>
 
       {trips.length > 0 && (
@@ -48,7 +48,7 @@ export default async function PillarPage({ params }: { params: Promise<{ pillar:
             {trips.map(({ destination: d, itinerary }) => (
               <li key={d.slug}>
                 <Link href={`/trips/${d.slug}`} className="group grid items-center gap-6 py-8 md:grid-cols-12">
-                  <Frame src={d.coverImage} alt={d.name} label={`${d.name} — trip cover`} seed={1} className="aspect-[4/3] rounded-sm md:col-span-4" sizes="(max-width: 768px) 100vw, 33vw" />
+                  <Frame src={d.coverImage} alt={d.coverImageAlt ?? d.name} position="50% 62%" label={`${d.name} — trip cover`} seed={1} className="aspect-[4/3] rounded-sm md:col-span-4" sizes="(max-width: 768px) 100vw, 33vw" />
                   <div className="md:col-span-7 md:col-start-6">
                     <p className="eyebrow text-[0.62rem] text-stone">
                       {tripDateRange(d.ourTrip.start, d.ourTrip.end)} · {itinerary.days.length} days

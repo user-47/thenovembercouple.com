@@ -11,8 +11,12 @@ export const site = {
   contactEmail: "hello@thenovembercouple.com",
   instagram: "https://www.instagram.com/thenovembercouple/",
   instagramHandle: "@thenovembercouple",
+  youtube: "https://www.youtube.com/@TheNovemberCouple",
   /** Add other profiles here as they're confirmed; only listed ones render. */
-  socials: [{ label: "Instagram", href: "https://www.instagram.com/thenovembercouple/", icon: "instagram" }] as const,
+  socials: [
+    { label: "Instagram", href: "https://www.instagram.com/thenovembercouple/", icon: "instagram" },
+    { label: "YouTube", href: "https://www.youtube.com/@TheNovemberCouple", icon: "youtube" },
+  ] as const,
   nav: [
     { href: "/", label: "Home" },
     { href: "/travel", label: "Travel" },

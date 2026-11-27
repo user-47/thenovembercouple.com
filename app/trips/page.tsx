@@ -30,7 +30,7 @@ export default function TripsPage() {
             <Link href={`/trips/${d.slug}`} className="group block">
               <Frame
                 src={d.coverImage}
-                alt={d.name}
+                alt={d.coverImageAlt ?? d.name}
                 label={d.name}
                 sublabel={d.ourTrip.label}
                 seed={i + 1}
