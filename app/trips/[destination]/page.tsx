@@ -44,13 +44,15 @@ export default async function DestinationPage({ params }: { params: Promise<{ de
     <>
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="mx-auto max-w-7xl px-5 pb-16 pt-16 text-center sm:px-8 sm:pt-24">
-          <Ring className="pointer-events-none absolute left-1/2 top-8 -translate-x-1/2 opacity-50" size={560} />
-          <p className="eyebrow relative text-stone">
-            {d.ourTrip.label} · {itinerary.days.length} days
-          </p>
-          <h1 className="display relative mt-6 text-7xl sm:text-8xl md:text-9xl">{d.name}</h1>
-          {d.nameLocal && <p className="display relative mt-2 text-3xl text-bronze">{d.nameLocal}</p>}
+        <div className="mx-auto max-w-7xl px-5 pb-16 pt-10 text-center sm:px-8 sm:pt-16">
+          <div className="relative mx-auto w-fit px-12 py-12 sm:px-20 sm:py-14">
+            <Ring oval className="pointer-events-none absolute inset-0 h-full w-full opacity-50" />
+            <p className="eyebrow relative text-stone">
+              {d.ourTrip.label} · {itinerary.days.length} days
+            </p>
+            <h1 className="display relative mt-6 text-7xl sm:text-8xl md:text-9xl">{d.name}</h1>
+            {d.nameLocal && <p className="display relative mt-5 text-3xl text-bronze">{d.nameLocal}</p>}
+          </div>
           <p className="relative mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-espresso/85">{d.intro}</p>
           <div className="relative mt-10 flex flex-col justify-center gap-3 sm:flex-row sm:items-center">
             <Link href={`/trips/${d.slug}/planner`} className="btn btn-primary btn-lg">
