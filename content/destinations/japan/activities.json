@@ -7,7 +7,7 @@
     "categories": ["Theme parks"],
     "kidFriendly": true,
     "kidNotes": "Under-4s enter free. Fantasyland is perfect for 3–6 year olds; rope-drop it before the queues build.",
-    "durationHrs": 9, "priceFrom": 7900, "priceNote": "Adult 1-Day Passport, dynamic pricing",
+    "durationHrs": 9, "priceFrom": 7900, "priceNote": "Adult 1-Day Passport, ¥7,900–¥12,400 by date",
     "summary": "The classic Disney park with a distinctly Japanese polish — immaculate, gentle, and magical at Christmas when the parade lights up the castle.",
     "tncTip": "Go on a weekday, be at the gate by 8:30, and plan a midday hotel nap. We came back for the parade refreshed instead of melting down.",
     "tncDays": [3],
@@ -15,13 +15,13 @@
       "level": "essential",
       "rule": { "type": "daysBefore", "days": 60, "time": "14:00" },
       "sellOutRisk": "high",
-      "howTo": "Dated tickets only, sold online — weekends and holidays can sell out. The official site can reject some foreign cards; Klook is a reliable fallback.",
+      "howTo": "Dated tickets open 60 days ahead at 2 PM Japan time and are sold online only — there are no tickets at the gate. Weekends and holidays can sell out. The official site can reject some foreign cards; Klook is a reliable fallback.",
       "links": [
         { "label": "Official tickets", "url": "https://www.tokyodisneyresort.jp/en/ticket/index.html", "kind": "official" },
         { "label": "Klook", "url": "https://www.klook.com/search/result/?query=Tokyo%20Disneyland", "kind": "affiliate", "partner": "klook" }
       ]
     },
-    "lastVerified": "2026-11-14",
+    "lastVerified": "2026-11-27",
     "sourceUrl": "https://www.tokyodisneyresort.jp/en/ticket/index.html"
   },
   {
@@ -32,19 +32,19 @@
     "categories": ["Theme parks"],
     "kidFriendly": true,
     "kidNotes": "More adult-leaning than Disneyland, but Fantasy Springs and Mermaid Lagoon are made for little ones.",
-    "durationHrs": 9, "priceFrom": 7900, "priceNote": "Adult 1-Day Passport, dynamic pricing",
+    "durationHrs": 9, "priceFrom": 7900, "priceNote": "Adult 1-Day Passport, ¥7,900–¥12,400 by date",
     "summary": "Widely called the most beautiful theme park in the world — volcanic lagoons, Venetian canals and the Fantasy Springs expansion.",
     "booking": {
       "level": "essential",
       "rule": { "type": "daysBefore", "days": 60, "time": "14:00" },
       "sellOutRisk": "high",
-      "howTo": "Same release as Disneyland: 60 days ahead at 2 PM Japan time.",
+      "howTo": "Same release as Disneyland: 60 days ahead at 2 PM Japan time, online only — no tickets at the gate.",
       "links": [
         { "label": "Official tickets", "url": "https://www.tokyodisneyresort.jp/en/ticket/index.html", "kind": "official" },
         { "label": "Klook", "url": "https://www.klook.com/search/result/?query=Tokyo%20DisneySea", "kind": "affiliate", "partner": "klook" }
       ]
     },
-    "lastVerified": "2026-11-14",
+    "lastVerified": "2026-11-27",
     "sourceUrl": "https://www.tokyodisneyresort.jp/en/ticket/index.html"
   },
   {
@@ -55,7 +55,7 @@
     "categories": ["Experiences", "Views"],
     "kidFriendly": true,
     "kidNotes": "Barefoot, knee-deep water rooms — kids love it. Wear shorts or roll-up trousers.",
-    "durationHrs": 2, "priceFrom": 3600, "priceNote": "Adult, varies by date",
+    "durationHrs": 2, "priceFrom": 3800, "priceNote": "Adult, varies by date",
     "summary": "An immersive digital art museum you walk through barefoot — koi swimming around your ankles, a floating flower garden and a universe of light.",
     "tncTip": "Book the very first slot of the day. It's calm, the mirrors are empty, and you're out before the lunchtime rush.",
     "tncDays": [4],
@@ -63,14 +63,14 @@
       "level": "essential",
       "rule": { "type": "recommended", "daysBefore": 21 },
       "sellOutRisk": "medium",
-      "howTo": "Timed tickets sell out for weekends and holidays; book 2–4 weeks ahead.",
+      "howTo": "No fixed release date — tickets come out in batches roughly 2–3 months ahead. Book 3–4 weeks out for weekends and holidays. No tickets at the door.",
       "links": [
         { "label": "Official tickets", "url": "https://teamlabplanets.dmm.com/en", "kind": "official" },
         { "label": "Klook", "url": "https://www.klook.com/search/result/?query=teamLab%20Planets", "kind": "affiliate", "partner": "klook" },
         { "label": "GetYourGuide", "url": "https://www.getyourguide.com/s/?q=teamLab%20Planets", "kind": "affiliate", "partner": "getyourguide" }
       ]
     },
-    "lastVerified": "2026-11-14",
+    "lastVerified": "2026-11-27",
     "sourceUrl": "https://teamlabplanets.dmm.com/en"
   },
   {
@@ -87,6 +87,7 @@
       "level": "essential",
       "rule": { "type": "recommended", "daysBefore": 21 },
       "sellOutRisk": "medium",
+      "howTo": "No fixed release date — tickets come out in batches a couple of months ahead. Book a few weeks out for weekends and holidays.",
       "links": [
         { "label": "Official site", "url": "https://www.teamlab.art/e/borderless-azabudai/", "kind": "official" },
         { "label": "Klook", "url": "https://www.klook.com/search/result/?query=teamLab%20Borderless", "kind": "affiliate", "partner": "klook" }
@@ -102,8 +103,8 @@
     "city": "Tokyo", "area": "Shibuya",
     "categories": ["Views"],
     "kidFriendly": true,
-    "kidNotes": "Open-air rooftop with high glass walls. No loose items (hats, bags) on the roof — lockers provided.",
-    "durationHrs": 1.5, "priceFrom": null, "priceNote": "Web tickets are cheaper than the counter",
+    "kidNotes": "Children’s tickets can’t be bought online: book the adults online, then buy the kids’ tickets at the 14th-floor counter on the day. Open-air rooftop with high glass walls. No loose items (hats, bags) on the roof — lockers provided.",
+    "durationHrs": 1.5, "priceFrom": 2700, "priceNote": "Adult web ticket before 3 PM (¥3,400 after). Children’s tickets (to age 12, ¥1,200) are sold only at the 14th-floor counter",
     "summary": "An open-air rooftop 230m above the Shibuya scramble — the definitive Tokyo sunset, with Mt Fuji on clear days.",
     "tncTip": "Sunset slots go first. Book the slot that starts ~40 minutes before sunset so you see daylight, golden hour and the city lighting up.",
     "tncDays": [5],
@@ -111,13 +112,13 @@
       "level": "essential",
       "rule": { "type": "daysBefore", "days": 14, "time": "00:00" },
       "sellOutRisk": "high",
-      "howTo": "Web tickets open two weeks ahead at midnight Japan time. Sunset slots can vanish within hours.",
+      "howTo": "Adult web tickets open two weeks ahead at midnight Japan time, and sunset slots can vanish within hours. Children’s tickets are counter-only, so a child can’t be booked online.",
       "links": [
         { "label": "Official tickets", "url": "https://www.shibuya-scramble-square.com/sky/ticket/", "kind": "official" },
         { "label": "Klook", "url": "https://www.klook.com/search/result/?query=Shibuya%20Sky", "kind": "affiliate", "partner": "klook" }
       ]
     },
-    "lastVerified": "2026-11-14",
+    "lastVerified": "2026-11-27",
     "sourceUrl": "https://www.shibuya-scramble-square.com/sky/ticket/"
   },
   {
@@ -664,6 +665,7 @@
     "city": "Osaka", "area": "Namba",
     "categories": ["Food", "Shopping"],
     "kidFriendly": true,
+    "kidNotes": "Busiest and loudest after dark — go in the early evening, and a carrier is easier than a stroller in the crowds.",
     "durationHrs": 2.5, "priceFrom": 0,
     "summary": "Neon canals, the Glico running man, takoyaki and Don Quijote for a tax-free skincare haul.",
     "tncDays": [10],
