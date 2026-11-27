@@ -8,7 +8,8 @@ import { site } from "@/content/site";
 export const metadata: Metadata = { title: "About", description: "Who we are — a family of four sharing travel, home and everyday life." };
 
 const facts = [
-  ["Home base", "—"],
+  ["Who", site.couple],
+  ["Home base", `${site.homeBase}, Canada`],
   ["Travelling with", "Two little ones, aged 3 & 5"],
   ["Why November", "Our month — so we travel in it"],
   ["Always packed", "A compact stroller & snacks"],
@@ -23,14 +24,14 @@ export default function AboutPage() {
         </Reveal>
         <div className="lg:col-span-6 lg:col-start-7 lg:pt-10">
           <p className="eyebrow text-stone">About us</p>
-          <h1 className="display mt-6 text-6xl sm:text-7xl">
+          <h1 className="display mt-6 text-5xl sm:text-6xl">
             Hello, we&rsquo;re <em className="bronze-text">The November Couple</em>.
           </h1>
-          {/* Placeholder copy — replace with your own story. */}
+          {/* Draft copy — replace with Olumide and Tosin's own story before launch. */}
           <div className="mt-8 space-y-5 text-lg leading-relaxed text-espresso/90">
             <p>
-              We&rsquo;re a family of four who believe the world is best seen slowly, together, and with a little bit of style. November is our
-              month — so each year we take it somewhere new.
+              We&rsquo;re {site.couple}, a family of four based in {site.homeBase}. We believe the world is best seen slowly, together, and with a
+              little bit of style. November is our month — so each year we take it somewhere new.
             </p>
             <p>
               We share the trips as they really are: the planning, the ticket-release alarms, the midday naps and the moments that make it
@@ -45,12 +46,12 @@ export default function AboutPage() {
               </div>
             ))}
           </dl>
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <Link href="/trips" className="btn btn-primary">
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Link href="/trips" className="btn btn-primary btn-lg">
               See our trips
             </Link>
-            <a href={site.instagram} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
-              Say hi on Instagram
+            <a href={site.instagram} target="_blank" rel="noopener noreferrer" className="text-link px-2 py-3 text-sm">
+              Say hi on Instagram ↗
             </a>
           </div>
         </div>

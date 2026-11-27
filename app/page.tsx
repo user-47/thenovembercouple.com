@@ -6,6 +6,7 @@ import { LatestTripCard } from "@/components/site/LatestTripCard";
 import { NewsletterForm } from "@/components/site/NewsletterForm";
 import { PlanningExtra } from "@/components/site/PlanningExtra";
 import { TripGrid } from "@/components/site/TripGrid";
+import mediaKit from "@/content/media-kit.json";
 import { site } from "@/content/site";
 import { getAllDestinations, getLatestTrip } from "@/lib/destinations";
 import { getAllPosts } from "@/lib/journal";
@@ -16,11 +17,12 @@ export default function Home() {
   const posts = getAllPosts().slice(0, 2);
   const photo = site.heroImage;
 
+  const followers = mediaKit.stats.find((s) => s.label === "Instagram followers")?.value;
   const trust = [
     latest && `Latest trip: ${latest.destination.name}, ${latest.itinerary.days.length} days`,
-    `${site.instagramFollowers} on Instagram`,
+    followers && `${followers} on Instagram`,
     "New guides, a few times a year",
-  ].filter(Boolean);
+  ].filter((t): t is string => Boolean(t));
 
   return (
     <>
@@ -68,7 +70,7 @@ export default function Home() {
               }`}
             >
               {trust.map((t) => (
-                <li key={t as string} className="figure">
+                <li key={t} className="figure">
                   {t}
                 </li>
               ))}

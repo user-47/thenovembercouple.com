@@ -11,8 +11,6 @@ export const site = {
   kidsAges: "Ages 3 & 5",
   instagram: "https://www.instagram.com/thenovembercouple/",
   instagramHandle: "@thenovembercouple",
-  /** Update by hand from the profile; shown in the homepage trust strip. */
-  instagramFollowers: "1,484",
   contactEmail: "hello@thenovembercouple.com",
   /** Optional hero photo in /public, e.g. "/images/hero.jpg". Null shows the typographic hero. */
   heroImage: null as string | null,

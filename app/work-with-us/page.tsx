@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 type CaseStudy = { brand: string; brief: string; deliverables: string; results: string };
 
 export default function WorkWithUs() {
-  const stats = mediaKit.stats as { label: string; value: string | null }[];
+  const stats = (mediaKit.stats as { label: string; value: string | null }[]).filter((s): s is { label: string; value: string } => s.value !== null);
   const partners = mediaKit.partners as { name: string; logo?: string }[];
   const cases = mediaKit.caseStudies as CaseStudy[];
   const aud = mediaKit.audience as { topCountries: string[]; ageRange: string | null; gender: string | null };
@@ -26,16 +26,16 @@ export default function WorkWithUs() {
         <Ring className="pointer-events-none absolute -right-40 top-0 opacity-40" size={620} />
         <div className="relative mx-auto max-w-7xl px-5 pb-20 pt-16 sm:px-8 sm:pt-24">
           <p className="eyebrow text-stone">Work with us</p>
-          <h1 className="display mt-6 max-w-4xl text-6xl sm:text-7xl md:text-8xl">
+          <h1 className="display mt-6 max-w-4xl text-5xl sm:text-6xl md:text-7xl">
             Stories people <em className="bronze-text">save</em>, plan &amp; book.
           </h1>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-espresso/85">{mediaKit.statement}</p>
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <a href="#inquire" className="btn btn-primary">
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a href="#inquire" className="btn btn-primary btn-lg">
               Start a conversation
             </a>
             {mediaKit.mediaKitPdf && (
-              <a href={mediaKit.mediaKitPdf} className="btn btn-ghost" download>
+              <a href={mediaKit.mediaKitPdf} className="text-link px-2 py-3 text-sm" download>
                 Download media kit (PDF)
               </a>
             )}
@@ -43,23 +43,24 @@ export default function WorkWithUs() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="border-y border-rule bg-paper">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 px-5 sm:px-8 md:grid-cols-4">
-          {stats.map((s, i) => (
-            <div key={s.label} className={`py-12 text-center ${i % 2 ? "border-l border-rule" : ""} ${i === 2 ? "md:border-l" : ""} ${i > 1 ? "border-t border-rule md:border-t-0" : ""}`}>
-              <p className="display text-5xl sm:text-6xl">{s.value ?? "—"}</p>
-              <p className="eyebrow mt-3 text-[0.6rem] text-stone">{s.label}</p>
-            </div>
-          ))}
-        </div>
-        <p className="pb-6 text-center text-[0.7rem] text-stone">
-          {[aud.ageRange && `Audience ${aud.ageRange}`, aud.gender, aud.topCountries.length ? `Top: ${aud.topCountries.join(", ")}` : null]
-            .filter(Boolean)
-            .join(" · ")}
-          {aud.ageRange || aud.topCountries.length ? " · " : ""}Updated {formatYmd(mediaKit.updated, { weekday: false, year: true })}
-        </p>
-      </section>
+      {/* Stats — only the numbers we actually have */}
+      {stats.length > 0 && (
+        <section className="border-y border-rule bg-paper">
+          <div className="mx-auto flex max-w-7xl flex-wrap justify-center px-5 sm:px-8">
+            {stats.map((s) => (
+              <div key={s.label} className="basis-1/2 px-4 py-12 text-center md:flex-1 md:basis-0 md:border-l md:border-rule md:first:border-l-0">
+                <p className="figure text-4xl text-ink sm:text-5xl">{s.value}</p>
+                <p className="eyebrow mt-3 text-[0.6rem] text-stone">{s.label}</p>
+              </div>
+            ))}
+          </div>
+          <p className="pb-6 text-center text-[0.7rem] text-stone">
+            {[aud.ageRange && `Audience ${aud.ageRange}`, aud.gender, aud.topCountries.length ? `Top: ${aud.topCountries.join(", ")}` : null, `Updated ${formatYmd(mediaKit.updated, { weekday: false, year: true })}`]
+              .filter(Boolean)
+              .join(" · ")}
+          </p>
+        </section>
+      )}
 
       {/* Services */}
       <section className="mx-auto max-w-7xl px-5 pt-28 sm:px-8">
