@@ -26,7 +26,7 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:h-20 sm:px-8">
-        <nav className="hidden flex-1 items-center gap-8 md:flex" aria-label="Primary">
+        <nav className="hidden flex-1 items-center gap-6 lg:flex lg:gap-8" aria-label="Primary">
           {site.nav.slice(0, 2).map((n) => (
             <NavLink key={n.href} href={n.href} active={pathname.startsWith(n.href)}>
               {n.label}
@@ -34,25 +34,24 @@ export function Header() {
           ))}
         </nav>
 
-        <Link href="/" className="flex items-center gap-3 md:flex-none" aria-label={`${site.name} — home`}>
+        <Link href="/" className="flex items-center lg:flex-none" aria-label={`${site.name} — home`}>
           <Image src="/brand/logo-transparent.png" alt="" width={52} height={52} className="h-11 w-11 sm:h-13 sm:w-13" priority />
-          <span className="eyebrow hidden text-[0.68rem] sm:inline md:hidden lg:inline">The November Couple</span>
         </Link>
 
-        <div className="hidden flex-1 items-center justify-end gap-8 md:flex">
+        <div className="hidden flex-1 items-center justify-end gap-6 lg:flex lg:gap-8">
           {site.nav.slice(2).map((n) => (
             <NavLink key={n.href} href={n.href} active={pathname.startsWith(n.href)}>
               {n.label}
             </NavLink>
           ))}
-          <Link href="/trips/japan/planner" className="btn btn-primary btn-sm">
+          <Link href="/trips/japan/planner" className="btn btn-primary btn-sm whitespace-nowrap">
             Plan Japan
           </Link>
         </div>
 
         <button
           type="button"
-          className="eyebrow -mr-2 p-2 md:hidden"
+          className="eyebrow -mr-2 p-2 lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           onClick={() => setOpen((v) => !v)}
@@ -62,7 +61,7 @@ export function Header() {
       </div>
 
       {open && (
-        <nav id="mobile-nav" className="border-t border-rule/70 px-5 pb-8 pt-4 md:hidden" aria-label="Mobile">
+        <nav id="mobile-nav" className="border-t border-rule/70 px-5 pb-8 pt-4 lg:hidden" aria-label="Mobile">
           <ul className="space-y-1">
             {site.nav.map((n) => (
               <li key={n.href}>

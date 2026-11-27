@@ -31,12 +31,12 @@ export default function Home() {
         <div className={`relative px-5 text-center ${site.heroImage ? "text-paper" : ""}`}>
           <p className="eyebrow">The November Couple</p>
           <h1 className="display mt-6 text-[clamp(3.6rem,13vw,10rem)] leading-[0.92]">
-            Collecting
+            Lifestyle,
             <br />
-            <em className={site.heroImage ? "" : "bronze-text"}>Novembers</em>
+            <em className={site.heroImage ? "" : "bronze-text"}>Travel.</em>
           </h1>
           <p className="mx-auto mt-8 max-w-md text-lg leading-relaxed opacity-90">
-            A family of four, travelling slowly and beautifully — and sharing exactly how we plan it.
+            A family of four, sharing home, travel and the everyday life in between.
           </p>
           <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
             <Link href="/trips/japan" className={`btn ${site.heroImage ? "border-paper bg-paper text-ink" : "btn-primary"}`}>

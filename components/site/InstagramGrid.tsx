@@ -26,7 +26,7 @@ async function getPosts(): Promise<BeholdPost[]> {
   }
 }
 
-const placeholders = ["東京", "京都", "大阪", "奈良", "11月", "旅", "家族", "秋"];
+const placeholders = ["Travel", "Home", "Family", "Lifestyle", "Together", "Everyday", "On the road", "Moments"];
 
 export async function InstagramGrid() {
   const posts = await getPosts();

@@ -5,7 +5,7 @@ import { Frame } from "@/components/brand/Frame";
 import { Reveal } from "@/components/ui/Reveal";
 import { site } from "@/content/site";
 
-export const metadata: Metadata = { title: "About", description: "Who we are — a family of four collecting Novembers around the world." };
+export const metadata: Metadata = { title: "About", description: "Who we are — a family of four sharing travel, home and everyday life." };
 
 const facts = [
   ["Home base", "—"],
