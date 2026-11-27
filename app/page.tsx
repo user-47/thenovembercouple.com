@@ -17,7 +17,8 @@ const heroImage = {
   src: "/images/tokyo/asakusa-lantern-restaurant.jpg" as string | undefined,
   alt: "A restaurant covered in glowing red lanterns in Asakusa, Tokyo, at night",
   caption: "Asakusa, Tokyo",
-  position: "42% 40%",
+  /** Keeps the lanterns clear of the fade on wide screens. */
+  position: "0% 40%",
 };
 
 export default function Home() {
@@ -26,27 +27,34 @@ export default function Home() {
 
   return (
     <>
-      {/* B. Hero — photo first on small screens, beside the headline on large ones */}
-      <section className="lg:grid lg:min-h-[calc(100svh-7rem)] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
-        <div className="relative aspect-[4/5] sm:aspect-[16/10] lg:col-start-2 lg:row-start-1 lg:aspect-auto">
+      {/* B. Hero — landscape photo that dissolves into ivory: from the left on large screens, from below on small ones */}
+      <section className="relative overflow-hidden lg:min-h-[calc(100svh-7rem)]">
+        <div className="relative aspect-[4/3] sm:aspect-[16/9] lg:absolute lg:inset-y-0 lg:left-[40%] lg:right-0 lg:aspect-auto xl:left-[32%]">
           <Frame
             src={heroImage.src}
             alt={heroImage.alt}
             label="Hero — Japan suggested"
             position={heroImage.position}
             priority
-            sizes="(max-width: 1024px) 100vw, 55vw"
+            sizes="(max-width: 1024px) 100vw, 70vw"
             seed={1}
             className="h-full w-full"
           />
+          <div aria-hidden className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-linen via-linen/60 to-transparent lg:hidden" />
+          <div
+            aria-hidden
+            className="absolute inset-0 hidden bg-gradient-to-r from-linen from-0% via-linen/55 via-25% to-transparent to-55% lg:block"
+          />
+          <div aria-hidden className="absolute inset-x-0 bottom-0 hidden h-24 bg-gradient-to-t from-linen/70 to-transparent lg:block" />
+          <div aria-hidden className="absolute inset-x-0 top-0 hidden h-16 bg-gradient-to-b from-linen/60 to-transparent lg:block" />
           {heroImage.src && (
-            <p className="absolute bottom-4 left-5 rounded-full bg-ink/55 px-3 py-1 text-[0.68rem] tracking-wide text-linen backdrop-blur-sm sm:left-8 lg:left-6">
+            <p className="absolute right-5 top-4 rounded-full bg-ink/55 px-3 py-1 text-[0.68rem] tracking-wide text-linen backdrop-blur-sm sm:right-8 lg:bottom-6 lg:top-auto">
               {heroImage.caption}
             </p>
           )}
         </div>
-        <div className="px-5 py-14 sm:px-8 lg:col-start-1 lg:row-start-1 lg:flex lg:items-center lg:py-24 lg:pl-[max(2rem,calc((100vw-80rem)/2+2rem))] lg:pr-14">
-          <div className="max-w-xl">
+        <div className="relative mx-auto max-w-7xl px-5 pb-14 pt-3 sm:px-8 lg:flex lg:min-h-[calc(100svh-7rem)] lg:items-center lg:py-24">
+          <div className="max-w-xl lg:max-w-[min(34rem,36vw)]">
             <p className="eyebrow text-bronze">{site.tagline}</p>
             <h1 className="display mt-6 text-balance text-[clamp(2.75rem,6vw,5rem)] leading-[1.02]">Life is better experienced together.</h1>
             <span className="mt-8 block h-px w-16 bg-antique" />
