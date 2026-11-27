@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { localTimeZone } from "@/lib/format";
 import { useTripStore, type Trip } from "@/lib/trip-store";
@@ -76,7 +77,7 @@ export function SaveTrip({ destination, trip }: { destination: string; trip: Tri
             {state === "loading" ? "Saving…" : saved ? "Update saved trip" : "Save & remind me"}
           </button>
           <p className="text-[0.7rem] leading-relaxed text-stone">
-            Reminder emails only — unsubscribe in one click. See our <a href="/privacy" className="underline">privacy policy</a>.
+            Reminder emails only — unsubscribe in one click. See our <Link href="/privacy" className="underline">privacy policy</Link>.
           </p>
           {state === "error" && (
             <p className="text-xs text-alert" role="alert">

@@ -1,167 +1,202 @@
-import Image from "next/image";
 import Link from "next/link";
-import { Arc, Ring } from "@/components/brand/Arc";
 import { Frame } from "@/components/brand/Frame";
-import { InstagramGrid } from "@/components/site/InstagramGrid";
-import { NewsletterForm } from "@/components/site/NewsletterForm";
+import { Collaboration } from "@/components/site/Collaboration";
+import { ExploreGrid } from "@/components/site/ExploreGrid";
+import { InstagramSection } from "@/components/site/InstagramSection";
+import { StoryGrid } from "@/components/site/StoryCard";
+import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/ui/Reveal";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import mediaKit from "@/content/media-kit.json";
+import { RuleHeading } from "@/components/ui/RuleHeading";
+import { pillars } from "@/content/pillars";
 import { site } from "@/content/site";
-import { getAllDestinations } from "@/lib/destinations";
+import { getLatestTrip, tripCities } from "@/lib/destinations";
 import { getAllPosts } from "@/lib/journal";
 
+/** Hero photo. Swap `src` for another shot in public/images/ (set it to undefined for the placeholder). */
+const heroImage = {
+  src: "/images/tokyo/asakusa-lantern-restaurant.jpg" as string | undefined,
+  alt: "A restaurant covered in glowing red lanterns in Asakusa, Tokyo, at night",
+  caption: "Asakusa, Tokyo",
+  position: "42% 40%",
+};
+
 export default function Home() {
-  const [japan] = getAllDestinations();
-  const latest = getAllPosts().slice(0, 2);
-  const partners = mediaKit.partners as { name: string; logo?: string }[];
+  const latest = getLatestTrip();
+  const posts = getAllPosts().slice(0, 3);
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative -mt-16 flex min-h-[92svh] items-center justify-center overflow-hidden sm:-mt-20">
-        {site.heroImage ? (
-          <>
-            <Image src={site.heroImage} alt="" fill priority className="object-cover" sizes="100vw" />
-            <div className="absolute inset-0 bg-ink/35" />
-          </>
-        ) : (
-          <Ring className="pointer-events-none absolute left-1/2 top-1/2 h-[min(120vw,820px)] w-[min(120vw,820px)] -translate-x-1/2 -translate-y-1/2 opacity-70" />
-        )}
-        <div className={`relative px-5 text-center ${site.heroImage ? "text-paper" : ""}`}>
-          <p className="eyebrow">The November Couple</p>
-          <h1 className="display mt-6 text-[clamp(3.6rem,13vw,10rem)] leading-[0.92]">
-            Lifestyle,
-            <br />
-            <em className={site.heroImage ? "" : "bronze-text"}>Travel.</em>
-          </h1>
-          <p className="mx-auto mt-8 max-w-md text-lg leading-relaxed opacity-90">
-            A family of four, sharing home, travel and the everyday life in between.
-          </p>
-          <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
-            <Link href="/trips/japan" className={`btn ${site.heroImage ? "border-paper bg-paper text-ink" : "btn-primary"}`}>
-              Follow our Japan trip
+      {/* B. Hero — photo first on small screens, beside the headline on large ones */}
+      <section className="lg:grid lg:min-h-[calc(100svh-7rem)] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
+        <div className="relative aspect-[4/5] sm:aspect-[16/10] lg:col-start-2 lg:row-start-1 lg:aspect-auto">
+          <Frame
+            src={heroImage.src}
+            alt={heroImage.alt}
+            label="Hero — Japan suggested"
+            position={heroImage.position}
+            priority
+            sizes="(max-width: 1024px) 100vw, 55vw"
+            seed={1}
+            className="h-full w-full"
+          />
+          {heroImage.src && (
+            <p className="absolute bottom-4 left-5 rounded-full bg-ink/55 px-3 py-1 text-[0.68rem] tracking-wide text-linen backdrop-blur-sm sm:left-8 lg:left-6">
+              {heroImage.caption}
+            </p>
+          )}
+        </div>
+        <div className="px-5 py-14 sm:px-8 lg:col-start-1 lg:row-start-1 lg:flex lg:items-center lg:py-24 lg:pl-[max(2rem,calc((100vw-80rem)/2+2rem))] lg:pr-14">
+          <div className="max-w-xl">
+            <p className="eyebrow text-bronze">{site.tagline}</p>
+            <h1 className="display mt-6 text-balance text-[clamp(2.75rem,6vw,5rem)] leading-[1.02]">Life is better experienced together.</h1>
+            <span className="mt-8 block h-px w-16 bg-antique" />
+            <p className="mt-8 max-w-md text-lg leading-relaxed text-ink/80">
+              Travel, beautiful spaces, good food and the little moments that make life memorable.
+            </p>
+            <Link href="/journal" className="btn btn-primary btn-lg mt-10">
+              Explore our journal <Icon name="arrow" className="h-4 w-4" strokeWidth={1.6} />
             </Link>
-            <a href={site.instagram} target="_blank" rel="noopener noreferrer" className={`btn ${site.heroImage ? "border-paper text-paper hover:bg-paper hover:text-ink" : "btn-ghost"}`}>
-              {site.instagramHandle}
-            </a>
           </div>
         </div>
-        <span className="eyebrow absolute bottom-8 left-1/2 -translate-x-1/2 text-[0.6rem] opacity-60">Scroll</span>
       </section>
 
-      {/* Now: Japan */}
-      {japan && (
-        <section className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
-          <div className="grid items-center gap-12 lg:grid-cols-12">
-            <Reveal className="lg:col-span-6">
-              <Frame
-                src={japan.destination.coverImage}
-                alt={`${japan.destination.name} trip`}
-                label={japan.destination.nameLocal}
-                sublabel={japan.destination.ourTrip.label}
-                seed={1}
-                className="aspect-[4/5]"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </Reveal>
-            <Reveal className="lg:col-span-5 lg:col-start-8" delay={0.1}>
-              <p className="eyebrow text-bronze">Now · {japan.destination.ourTrip.label}</p>
-              <h2 className="display mt-4 text-5xl sm:text-6xl">
-                {japan.destination.name}, with a three- and five-year-old
-              </h2>
-              <p className="mt-6 text-lg leading-relaxed text-espresso/85">
-                Our {japan.itinerary.days.length}-day itinerary — and a planner that tells you the exact day and minute every ticket goes on
-                sale, in your own time zone. Ghibli, Pokémon Café, Disney, Shibuya Sky: never miss a release.
-              </p>
-              <ul className="mt-8 space-y-3 border-y border-rule py-6 text-sm">
-                {[
-                  `${japan.activities.length} hand-picked experiences across ${japan.destination.cities.length} regions`,
-                  "Copy our whole trip onto your dates in one tap",
-                  "Calendar alerts & email reminders before each release",
-                ].map((t) => (
-                  <li key={t} className="flex gap-3">
-                    <span className="text-bronze">—</span>
-                    {t}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link href="/trips/japan/planner" className="btn btn-primary">
-                  Plan your Japan trip
+      {/* C. About */}
+      <section className="border-y border-rule bg-paper">
+        <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 py-20 sm:px-8 md:py-28 lg:grid-cols-12 lg:gap-10">
+          <Reveal className="relative mx-auto aspect-[10/9] w-full max-w-md lg:col-span-4">
+            <Polaroid className="left-0 top-[4%] w-[56%] -rotate-[5deg]" label="The two of us, on the road" seed={0} />
+            <Polaroid
+              className="right-0 top-0 w-[42%] rotate-[4deg]"
+              label="Lantern-lit street in Asakusa, Tokyo"
+              src="/images/tokyo/asakusa-lantern-street.jpg"
+              caption="Asakusa, Tokyo"
+              position="50% 45%"
+              seed={2}
+            />
+            <Polaroid className="bottom-0 right-[10%] w-[40%] -rotate-[2deg]" label="A meal to remember" seed={3} />
+          </Reveal>
+          <div className="lg:col-span-4 lg:border-l lg:border-rule lg:pl-10">
+            <p className="eyebrow text-bronze">Who we are</p>
+            <h2 className="display mt-4 text-4xl md:text-5xl">A couple, a family, and a shared curiosity</h2>
+            <p className="mt-6 leading-relaxed text-ink/80">
+              We&rsquo;re {site.couple}, based in {site.homeBase}. We share the trips we take, the homes and spaces we love, good food,
+              family life and the everyday moments in between.
+            </p>
+            <Link href="/about" className="text-link mt-6 inline-flex items-center gap-2 text-sm">
+              Learn more about us <Icon name="arrow" className="h-4 w-4" />
+            </Link>
+          </div>
+          <ul className="grid grid-cols-3 gap-y-8 sm:grid-cols-5 lg:col-span-4 lg:grid-cols-3">
+            {pillars.map((p) => (
+              <li key={p.slug}>
+                <Link href={`/${p.slug}`} className="group flex flex-col items-center gap-3 text-center">
+                  <span className="grid h-16 w-16 place-items-center rounded-full bg-taupe/60 text-ink transition-colors group-hover:bg-ink group-hover:text-linen">
+                    <Icon name={p.icon} className="h-7 w-7" strokeWidth={1.2} />
+                  </span>
+                  <span className="text-xs leading-snug text-ink/80">{p.title}</span>
                 </Link>
-                <Link href="/trips/japan" className="btn btn-ghost">
-                  See our itinerary
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* D. Featured travel story */}
+      {latest && (
+        <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 md:py-28">
+          <div className="grid items-center gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-5">
+              <RuleHeading>Latest travel</RuleHeading>
+              <h2 className="display mt-8 text-5xl md:text-6xl">{latest.destination.name}: our latest adventure</h2>
+              <p className="eyebrow mt-5 text-[0.62rem] text-stone">
+                {latest.destination.ourTrip.label} · {latest.itinerary.days.length} days · {tripCities(latest.destination.cities).join(", ")}
+              </p>
+              <p className="mt-6 text-lg leading-relaxed text-ink/80">{latest.destination.intro}</p>
+              <p className="mt-4 leading-relaxed text-ink/70">
+                More than a post: the full day-by-day story, every ticket we booked and when, and a planner to make the trip your own.
+              </p>
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+                <Link href={`/trips/${latest.destination.slug}`} className="btn btn-primary btn-lg">
+                  Read the story <Icon name="arrow" className="h-4 w-4" strokeWidth={1.6} />
+                </Link>
+                <Link href={`/trips/${latest.destination.slug}/planner`} className="text-link px-1 py-2 text-sm">
+                  Plan your own trip
                 </Link>
               </div>
+            </div>
+            <Reveal className="lg:col-span-7" delay={0.1}>
+              <Frame
+                src={latest.destination.coverImage}
+                alt={latest.destination.coverImageAlt ?? `Our ${latest.destination.name} trip`}
+                label={`${latest.destination.name} — featured story image`}
+                position="50% 62%"
+                seed={1}
+                className="aspect-[4/3] rounded-sm lg:aspect-[16/11]"
+                sizes="(max-width: 1024px) 100vw, 60vw"
+              />
             </Reveal>
           </div>
         </section>
       )}
 
-      {/* Instagram */}
+      {/* E. Explore our world */}
       <section className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <SectionHeading eyebrow="On Instagram" title="From the road" />
-          <a href={site.instagram} target="_blank" rel="noopener noreferrer" className="eyebrow link-underline shrink-0">
-            {site.instagramHandle} ↗
-          </a>
-        </div>
+        <RuleHeading>Explore our world</RuleHeading>
         <div className="mt-10">
-          <InstagramGrid />
+          <ExploreGrid />
         </div>
       </section>
 
-      {/* Journal */}
-      {latest.length > 0 && (
-        <section className="mx-auto max-w-7xl px-5 pt-28 sm:px-8 sm:pt-36">
-          <SectionHeading eyebrow="Journal" title="Stories & guides" />
-          <div className="mt-12 grid gap-10 md:grid-cols-2">
-            {latest.map((p, i) => (
-              <Reveal key={p.slug} delay={i * 0.1}>
-                <Link href={`/journal/${p.slug}`} className="group block">
-                  <Frame src={p.cover} alt={p.title} label={p.coverLabel} seed={i + 2} className="aspect-[3/2]" sizes="(max-width: 768px) 100vw, 50vw" />
-                  <p className="eyebrow mt-6 text-stone">{p.category}</p>
-                  <h3 className="display mt-2 text-3xl group-hover:text-espresso">{p.title}</h3>
-                  <p className="mt-2 text-espresso/80">{p.excerpt}</p>
-                </Link>
-              </Reveal>
-            ))}
+      {/* F. Latest stories */}
+      {posts.length > 0 && (
+        <section className="mx-auto max-w-7xl px-5 pt-24 sm:px-8 md:pt-32">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="eyebrow text-bronze">From the journal</p>
+              <h2 className="display mt-4 text-4xl md:text-5xl">Latest stories</h2>
+            </div>
+            <Link href="/journal" className="text-link shrink-0 text-sm">
+              View all stories →
+            </Link>
+          </div>
+          <div className="mt-12">
+            <StoryGrid posts={posts} />
           </div>
         </section>
       )}
 
-      {/* Brands */}
-      <section className="mx-auto mt-28 max-w-7xl px-5 sm:mt-36 sm:px-8">
-        <div className="relative overflow-hidden bg-ink px-6 py-20 text-center text-paper sm:px-16">
-          <Ring className="pointer-events-none absolute -right-24 -top-24 opacity-30" size={420} />
-          <p className="eyebrow text-bronze-light">For brands</p>
-          <h2 className="display mx-auto mt-5 max-w-3xl text-5xl sm:text-6xl">Stories people save, plan &amp; book.</h2>
-          <p className="mx-auto mt-6 max-w-xl leading-relaxed text-paper/75">{mediaKit.statement}</p>
-          {partners.length > 0 && (
-            <ul className="mx-auto mt-10 flex max-w-3xl flex-wrap items-center justify-center gap-x-10 gap-y-4">
-              {partners.map((p) => (
-                <li key={p.name} className="eyebrow text-paper/60">
-                  {p.name}
-                </li>
-              ))}
-            </ul>
-          )}
-          <Link href="/work-with-us" className="btn mt-10 border-paper bg-paper text-ink hover:bg-bronze-light">
-            Work with us
-          </Link>
-        </div>
-      </section>
+      {/* Instagram and YouTube */}
+      <div className="pt-24 md:pt-32">
+        <InstagramSection />
+      </div>
 
-      {/* Newsletter */}
-      <section className="mx-auto max-w-xl px-5 pt-28 text-center sm:pt-36">
-        <Arc className="mx-auto" width={160} />
-        <h2 className="display mt-8 text-4xl sm:text-5xl">Letters from the road</h2>
-        <p className="mt-4 text-espresso/80">New trip planners and booking dates, a few times a year. Nothing more.</p>
-        <div className="mx-auto max-w-md text-left">
-          <NewsletterForm />
-        </div>
-      </section>
+      {/* G. Collaboration — the newsletter (H) and footer (I) follow from the layout */}
+      <div className="pt-24 md:pt-32">
+        <Collaboration />
+      </div>
     </>
+  );
+}
+
+function Polaroid({
+  className,
+  label,
+  seed,
+  src,
+  caption,
+  position,
+}: {
+  className: string;
+  label: string;
+  seed: number;
+  src?: string;
+  caption?: string;
+  position?: string;
+}) {
+  return (
+    <div className={`absolute bg-white p-2 pb-7 shadow-[0_18px_40px_-18px_rgba(33,26,22,0.35)] ${className}`}>
+      <Frame src={src} alt={label} seed={seed} quiet position={position} className="aspect-[4/5]" sizes="240px" />
+      <p className="absolute inset-x-2 bottom-1.5 truncate text-center text-[0.58rem] text-ink/45">{src ? caption : "Photo placeholder"}</p>
+    </div>
   );
 }

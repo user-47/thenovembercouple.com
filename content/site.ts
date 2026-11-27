@@ -1,19 +1,28 @@
 export const site = {
   name: "The November Couple",
   shortName: "TNC",
+  tagline: "Travel. Live. Explore. Together.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://thenovembercouple.com",
   description:
-    "The November Couple — a family of four sharing real family travel, lifestyle and the trips we actually plan. Trip planners, travel guides and brand partnerships.",
-  tagline: "A family of four, sharing travel, home and everyday life.",
+    "The November Couple is a lifestyle, travel and experiences journal — travel stories, beautiful homes, good food, family life and the everyday moments worth sharing.",
+  couple: "Olumide and Tosin",
+  homeBase: "Calgary",
+  kidsAges: "Ages 3 & 5",
+  contactEmail: "hello@thenovembercouple.com",
   instagram: "https://www.instagram.com/thenovembercouple/",
   instagramHandle: "@thenovembercouple",
-  contactEmail: "hello@thenovembercouple.com",
-  /** Optional hero image in /public, e.g. "/images/hero.jpg". Leave null for the typographic hero. */
-  heroImage: null as string | null,
+  youtube: "https://www.youtube.com/@TheNovemberCouple",
+  /** Add other profiles here as they're confirmed; only listed ones render. */
+  socials: [
+    { label: "Instagram", href: "https://www.instagram.com/thenovembercouple/", icon: "instagram" },
+    { label: "YouTube", href: "https://www.youtube.com/@TheNovemberCouple", icon: "youtube" },
+  ] as const,
   nav: [
-    { href: "/trips", label: "Trips" },
-    { href: "/journal", label: "Journal" },
+    { href: "/", label: "Home" },
+    { href: "/travel", label: "Travel" },
+    { href: "/luxury-homes", label: "Luxury Homes" },
+    { href: "/food-and-dining", label: "Food & Dining" },
+    { href: "/lifestyle", label: "Lifestyle" },
     { href: "/about", label: "About" },
-    { href: "/work-with-us", label: "Work with us" },
   ],
 };

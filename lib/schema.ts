@@ -83,6 +83,7 @@ export const destinationSchema = z.object({
   currencySymbol: z.string(),
   ourTrip: z.object({ start: isoDate, end: isoDate, label: z.string() }),
   coverImage: z.string().optional(),
+  coverImageAlt: z.string().optional(),
   cities: z.array(z.string()),
   categories: z.array(z.string()),
   essentials: z

@@ -1,16 +1,16 @@
 import Image from "next/image";
-import { Ring } from "./Arc";
+import { Icon } from "@/components/ui/Icon";
 
 const tones = [
-  "from-[#dcd3c3] to-[#cbbfa9]",
-  "from-[#e2d9cb] to-[#d3c2a8]",
-  "from-[#d6cdbf] to-[#bfb09a]",
-  "from-[#ddd2c0] to-[#c6b293]",
+  "from-[#e6dccd] to-[#d3c2ab]",
+  "from-[#e2d6c5] to-[#cdb99d]",
+  "from-[#ddd0bd] to-[#c7b195]",
+  "from-[#e8dfd2] to-[#d6c6b0]",
 ];
 
 /**
- * Photo frame. With `src` it renders the image; without, an editorial typographic
- * placeholder (local-script name + ring) so the layout looks intentional before photos land.
+ * Photo frame. Shows the real photo when `src` is set; until then, a clearly labelled
+ * placeholder describing the shot that belongs here.
  */
 export function Frame({
   src,
@@ -21,37 +21,39 @@ export function Frame({
   className = "",
   sizes = "(max-width: 768px) 100vw, 33vw",
   priority = false,
+  quiet = false,
+  position,
 }: {
   src?: string;
   alt: string;
+  /** What photo belongs here, e.g. "Japan — hero". */
   label?: string;
   sublabel?: string;
   seed?: number;
   className?: string;
   sizes?: string;
   priority?: boolean;
+  /** Hide the caption, for small frames or ones overlaid with their own text. */
+  quiet?: boolean;
+  /** CSS object-position for the photo's crop, e.g. "50% 60%". */
+  position?: string;
 }) {
   return (
     <div className={`relative overflow-hidden ${className}`}>
       {src ? (
-        <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover" />
+        <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover" style={position ? { objectPosition: position } : undefined} />
       ) : (
-        <div
-          role="img"
-          aria-label={alt}
-          className={`absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br ${tones[seed % tones.length]}`}
-        >
-          <Ring className="absolute opacity-60" size={260} />
-          {label && (
-            <span
-              className={`display relative max-w-[70%] text-center text-espresso/80 ${
-                label.length > 7 ? "text-3xl leading-snug sm:text-4xl" : label.length > 4 ? "text-4xl sm:text-5xl" : "text-5xl sm:text-6xl"
-              }`}
-            >
-              {label}
-            </span>
-          )}
-          {sublabel && <span className="eyebrow relative mt-4 text-espresso/70">{sublabel}</span>}
+        <div role="img" aria-label={`Photo placeholder: ${alt}`} className={`absolute inset-0 bg-gradient-to-br ${tones[seed % tones.length]}`}>
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-ink/45">
+            <Icon name="image" className="h-7 w-7" strokeWidth={1.1} />
+            {!quiet && (
+              <>
+                <span className="eyebrow text-[0.58rem]">Photo placeholder</span>
+                {label && <span className="max-w-[80%] text-balance text-center text-xs text-ink/55">{label}</span>}
+                {sublabel && <span className="text-[0.7rem] text-ink/45">{sublabel}</span>}
+              </>
+            )}
+          </div>
         </div>
       )}
     </div>

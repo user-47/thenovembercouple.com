@@ -40,7 +40,7 @@ Update `lastVerified` whenever you re-check a rule. It's shown on the activity p
 
 ### Photos
 
-Put images in `public/images/` and set `"image": "/images/xyz.jpg"` on an activity, or `coverImage` on a destination, or `heroImage` in `content/site.ts`. Anything without a photo shows an elegant typographic placeholder.
+Put images in `public/images/` and set `"image": "/images/xyz.jpg"` on an activity, or `coverImage` on a destination, `image` on a pillar in `content/pillars.ts`, or `heroImage` in `app/page.tsx`. Anything without a photo shows an elegant typographic placeholder.
 
 ## Going live
 
@@ -51,8 +51,8 @@ Put images in `public/images/` and set `"image": "/images/xyz.jpg"` on an activi
    - On Vercel **Pro**, add a `vercel.json` with `{"crons":[{"path":"/api/cron/reminders","schedule":"*/10 * * * *"}]}`. Vercel sends the secret automatically.
    - On the **Hobby** plan, crons run at most daily, which is too coarse for "opens in 1 hour" reminders. Use a free external scheduler (e.g. cron-job.org, or a GitHub Actions schedule) to call the URL with the header instead.
 5. Optional extras:
-   - `BEHOLD_FEED_ID` shows the live Instagram grid (via behold.so).
    - The Turnstile keys add spam protection to the brand form.
+   - `BEHOLD_FEED_ID` shows the latest Instagram posts on the homepage. Create a free feed at [behold.so](https://behold.so), connect the Instagram account, choose the JSON feed, and copy its ID.
    - The affiliate IDs are appended automatically to outbound links through `/go/...`.
 
 ## Content to fill in

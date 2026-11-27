@@ -4,13 +4,15 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { addDays, diffDays } from "@/lib/dates";
 import { useHydrated, useTrip, useTripStore } from "@/lib/trip-store";
-import { getBookingWindow } from "@/lib/booking-rules";
+import { compareBookFirst, getBookingWindow } from "@/lib/booking-rules";
+import type { Activity } from "@/lib/schema";
 import { ActivityCard } from "./ActivityCard";
 import { MyTrip } from "./MyTrip";
 import { TicketCalendar } from "./TicketCalendar";
 import type { PlannerData } from "./shared";
 
 type Tab = "discover" | "trip" | "calendar";
+type Sort = "book-first" | "city" | "ours";
 
 export function Planner({
   data,
@@ -36,6 +38,7 @@ export function Planner({
   const [mustBook, setMustBook] = useState(false);
   const [ours, setOurs] = useState(false);
   const [q, setQ] = useState("");
+  const [sort, setSort] = useState<Sort>("book-first");
 
   // Restore a saved trip from a magic link: /trips/japan/planner?trip=<token>
   const params = useSearchParams();
@@ -61,7 +64,7 @@ export function Planner({
 
   const filtered = useMemo(() => {
     const needle = q.trim().toLowerCase();
-    return activities.filter(
+    const list = activities.filter(
       (a) =>
         (city === "All" || a.city === city) &&
         (category === "All" || a.categories.includes(category)) &&
@@ -70,7 +73,11 @@ export function Planner({
         (!ours || (a.tncDays?.length ?? 0) > 0) &&
         (!needle || `${a.name} ${a.nameLocal ?? ""} ${a.area ?? ""} ${a.summary}`.toLowerCase().includes(needle)),
     );
-  }, [activities, city, category, kids, mustBook, ours, q]);
+    if (sort === "book-first") return [...list].sort(compareBookFirst);
+    if (sort === "city") return [...list].sort((a, b) => d.cities.indexOf(a.city) - d.cities.indexOf(b.city));
+    const firstDay = (a: Activity) => a.tncDays?.[0] ?? Infinity;
+    return [...list].sort((a, b) => firstDay(a) - firstDay(b));
+  }, [activities, city, category, kids, mustBook, ours, q, sort, d.cities]);
 
   const actionCount = useMemo(() => {
     if (!hydrated) return 0;
@@ -156,7 +163,7 @@ export function Planner({
       </div>
 
       {/* Tabs */}
-      <div ref={tabsRef} className="sticky top-16 z-40 scroll-mt-16 border-b border-rule bg-linen/95 backdrop-blur sm:top-20 sm:scroll-mt-20">
+      <div ref={tabsRef} className="sticky top-16 z-40 scroll-mt-16 border-b border-rule bg-linen/95 backdrop-blur">
         <div role="tablist" aria-label="Planner" className="no-scrollbar mx-auto flex max-w-7xl gap-8 overflow-x-auto px-5 sm:px-8">
           {(
             [
@@ -235,9 +242,19 @@ export function Planner({
               </div>
             </div>
 
-            <p className="mt-8 text-xs text-stone">
-              {filtered.length} of {activities.length} experiences
-            </p>
+            <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
+              <p className="text-xs text-stone">
+                {filtered.length} of {activities.length} experiences
+              </p>
+              <label className="flex items-center gap-3 text-sm">
+                <span className="text-stone">Sort</span>
+                <select className="field w-auto py-1" value={sort} onChange={(e) => setSort(e.target.value as Sort)}>
+                  <option value="book-first">Book first</option>
+                  <option value="city">By city</option>
+                  <option value="ours">Our itinerary order</option>
+                </select>
+              </label>
+            </div>
             <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {filtered.map((a, i) => (
                 <ActivityCard key={a.slug} a={a} d={d} index={i} />

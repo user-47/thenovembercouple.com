@@ -5,6 +5,8 @@
   "tagline": "Tokyo to Kyoto, with a three- and five-year-old in tow.",
   "intro": "Thirteen days of temples, theme parks, ramen and ninja trials — planned around little legs, early nights and the very real art of getting tickets in Japan. Everything we booked, when we booked it, and how you can do it too.",
   "status": "live",
+  "coverImage": "/images/tokyo/kaminarimon-gate.jpg",
+  "coverImageAlt": "The great red lantern at Kaminarimon gate, Asakusa, Tokyo",
   "timezone": "Asia/Tokyo",
   "timezoneLabel": "JST",
   "currency": "JPY",

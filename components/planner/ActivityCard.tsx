@@ -8,14 +8,15 @@ import { LevelBadge } from "./shared";
 
 export function ActivityCard({ a, d, index }: { a: Activity; d: Destination; index: number }) {
   const href = `/trips/${d.slug}/${a.slug}`;
-  const meta = [a.city, durationLabel(a.durationHrs), price(a.priceFrom, d.currencySymbol)].filter(Boolean);
+  const meta = [a.city, durationLabel(a.durationHrs)].filter(Boolean);
+  const cost = price(a.priceFrom, d.currencySymbol);
   return (
     <article className="group flex flex-col bg-paper">
       <Link href={href} className="block" tabIndex={-1} aria-hidden>
         <Frame
           src={a.image}
           alt={a.name}
-          label={a.nameLocal}
+          label={a.name}
           sublabel={a.city}
           seed={index}
           className="aspect-[4/5] transition-transform duration-700 group-hover:scale-[1.01]"
@@ -34,8 +35,12 @@ export function ActivityCard({ a, d, index }: { a: Activity; d: Destination; ind
           </Link>
         </h3>
         <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-espresso/85">{a.summary}</p>
-        <p className="mt-3 text-xs text-stone">{meta.join(" · ")}</p>
-        {a.booking.level !== "none" && <p className="mt-1 text-xs text-stone">{describeRule(a.booking.rule, d.timezoneLabel)}</p>}
+        {a.booking.level !== "none" && <p className="mt-4 text-sm font-medium text-ink">{describeRule(a.booking.rule, d.timezoneLabel)}</p>}
+        <p className="mt-1 text-xs text-stone">
+          {cost && <span className="figure text-ink">{cost}</span>}
+          {cost && meta.length > 0 && " · "}
+          {meta.join(" · ")}
+        </p>
         <div className="mt-auto flex items-center justify-between gap-3 pt-5">
           <Link href={href} className="eyebrow link-underline text-[0.62rem]">
             Details

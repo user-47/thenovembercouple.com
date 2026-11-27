@@ -1,4 +1,5 @@
 import { rawDestinations } from "@/content/destinations";
+import { formatYmd } from "./dates";
 import {
   activitySchema,
   destinationSchema,
@@ -39,6 +40,21 @@ export function getAllDestinations(): DestinationBundle[] {
     return { destination, itinerary, activities };
   });
   return cache;
+}
+
+export function tripCities(cities: string[]) {
+  return cities.filter((c) => c !== "Day trips");
+}
+
+export function tripDateRange(start: string, end: string) {
+  return `${formatYmd(start, { weekday: false })} – ${formatYmd(end, { weekday: false, year: true })}`;
+}
+
+/** The live trip with the most recent start date — featured as "Latest trip". */
+export function getLatestTrip(): DestinationBundle | undefined {
+  return getAllDestinations()
+    .filter((b) => b.destination.status === "live")
+    .sort((a, b) => b.destination.ourTrip.start.localeCompare(a.destination.ourTrip.start))[0];
 }
 
 export function getDestination(slug: string): DestinationBundle | undefined {

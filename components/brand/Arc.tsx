@@ -34,10 +34,17 @@ export function Arc({
 }
 
 /** A full circle of broken arcs — the logo's ring, used to frame text or as a loader. */
-export function Ring({ className = "", size = 320 }: { className?: string; size?: number }) {
+export function Ring({ className = "", size = 320, oval = false }: { className?: string; size?: number; oval?: boolean }) {
   const id = useId().replace(/:/g, "");
   return (
-    <svg aria-hidden viewBox="0 0 200 200" width={size} height={size} className={className}>
+    <svg
+      aria-hidden
+      viewBox="0 0 200 200"
+      width={size}
+      height={size}
+      className={className}
+      preserveAspectRatio={oval ? "none" : undefined}
+    >
       <defs>
         <linearGradient id={`ring-${id}`} x1="0" x2="1" y1="0" y2="1">
           <stop offset="0" stopColor="var(--espresso)" />

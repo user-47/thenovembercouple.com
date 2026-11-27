@@ -7,7 +7,7 @@ import { LevelBadge } from "@/components/planner/shared";
 import { describeRule } from "@/lib/booking-rules";
 import { formatYmd } from "@/lib/dates";
 import { getActivity, getAllDestinations } from "@/lib/destinations";
-import { goHref } from "@/lib/affiliates";
+import { goHref, linkLabel, orderedLinks } from "@/lib/affiliates";
 import { durationLabel, price } from "@/lib/format";
 
 export function generateStaticParams() {
@@ -29,6 +29,7 @@ export default async function ActivityPage({ params }: { params: Promise<{ desti
   const { destination: d, activity: a, activities } = r;
   const related = activities.filter((x) => x.slug !== a.slug && x.city === a.city).slice(0, 3);
   const hasAffiliate = a.booking.links.some((l) => l.kind === "affiliate");
+  const [primary, ...secondary] = orderedLinks(a.booking.links);
   const facts = [
     ["Where", [a.area, a.city].filter(Boolean).join(", ")],
     ["Time needed", durationLabel(a.durationHrs)],
@@ -46,7 +47,7 @@ export default async function ActivityPage({ params }: { params: Promise<{ desti
 
       <div className="mt-10 grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-6">
-          <Frame src={a.image} alt={a.name} label={a.nameLocal} sublabel={a.city} seed={a.slug.length} className="aspect-[4/5]" sizes="(max-width: 1024px) 100vw, 50vw" priority />
+          <Frame src={a.image} alt={a.name} label={a.name} sublabel={a.city} seed={a.slug.length} className="aspect-[4/5]" sizes="(max-width: 1024px) 100vw, 50vw" priority />
         </div>
 
         <div className="lg:col-span-6 lg:pt-6">
@@ -70,19 +71,29 @@ export default async function ActivityPage({ params }: { params: Promise<{ desti
 
           {a.booking.howTo && <p className="mt-6 text-sm leading-relaxed text-espresso/80">{a.booking.howTo}</p>}
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <AddToTrip destination={d.slug} slug={a.slug} name={a.name} />
-            {a.booking.links.map((l, i) => (
+          {primary && (
+            <a
+              href={goHref(d.slug, a.slug, primary.index)}
+              target="_blank"
+              rel={primary.link.kind === "affiliate" ? "noopener sponsored" : "noopener"}
+              className="btn btn-primary btn-lg mt-8 w-full sm:w-auto"
+            >
+              {linkLabel(primary.link)} ↗
+            </a>
+          )}
+          <div className="mt-4 flex flex-wrap items-center gap-3">
+            {secondary.map(({ link: l, index }) => (
               <a
                 key={l.url}
-                href={goHref(d.slug, a.slug, i)}
+                href={goHref(d.slug, a.slug, index)}
                 target="_blank"
                 rel={l.kind === "affiliate" ? "noopener sponsored" : "noopener"}
-                className={`btn btn-sm ${i === 0 ? "btn-primary" : "btn-ghost"}`}
+                className="btn btn-ghost btn-sm"
               >
-                {l.label} ↗
+                {linkLabel(l)} ↗
               </a>
             ))}
+            <AddToTrip destination={d.slug} slug={a.slug} name={a.name} />
           </div>
           {hasAffiliate && (
             <p className="mt-4 text-[0.7rem] text-stone">
