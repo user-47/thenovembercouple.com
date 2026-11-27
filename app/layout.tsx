@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { site } from "@/content/site";
+import { getLatestTrip } from "@/lib/destinations";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -33,13 +34,14 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { themeColor: "#e8e3d9" };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const latest = getLatestTrip()?.destination;
   return (
     <html lang="en" className={`${cormorant.variable} ${jost.variable}`}>
       <body className="grain min-h-screen antialiased">
         <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:bg-ink focus:px-4 focus:py-2 focus:text-paper">
           Skip to content
         </a>
-        <Header />
+        <Header cta={latest && { href: `/trips/${latest.slug}/planner`, name: latest.name }} />
         <main id="main">{children}</main>
         <Footer />
         <Analytics />

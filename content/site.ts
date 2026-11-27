@@ -5,11 +5,18 @@ export const site = {
   description:
     "The November Couple — a family of four sharing real family travel, lifestyle and the trips we actually plan. Trip planners, travel guides and brand partnerships.",
   tagline: "A family of four, sharing travel, home and everyday life.",
+  couple: "Olumide and Tosin",
+  homeBase: "Calgary",
+  kids: "our three- and five-year-old",
+  kidsAges: "Ages 3 & 5",
   instagram: "https://www.instagram.com/thenovembercouple/",
   instagramHandle: "@thenovembercouple",
+  /** Update by hand from the profile; shown in the homepage trust strip. */
+  instagramFollowers: "1,484",
   contactEmail: "hello@thenovembercouple.com",
-  /** Optional hero image in /public, e.g. "/images/hero.jpg". Leave null for the typographic hero. */
+  /** Optional hero photo in /public, e.g. "/images/hero.jpg". Null shows the typographic hero. */
   heroImage: null as string | null,
+  heroImageAlt: "",
   nav: [
     { href: "/trips", label: "Trips" },
     { href: "/journal", label: "Journal" },

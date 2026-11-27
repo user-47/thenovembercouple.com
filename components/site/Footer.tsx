@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/content/site";
-import { NewsletterForm } from "./NewsletterForm";
+import { FooterNewsletter } from "./FooterNewsletter";
 
 export function Footer() {
   return (
-    <footer className="mt-32 bg-ink text-paper">
+    <footer className="mt-24 bg-ink text-paper md:mt-32">
       <div className="mx-auto grid max-w-7xl gap-14 px-5 py-20 sm:px-8 md:grid-cols-12">
         <div className="md:col-span-5">
           <Image src="/brand/logo-transparent.png" alt={site.name} width={96} height={96} className="opacity-90 brightness-0 invert" />
@@ -49,17 +49,18 @@ export function Footer() {
         </div>
 
         <div className="md:col-span-4">
-          <p className="eyebrow text-bronze-light">Letters from the road</p>
-          <p className="mt-4 text-sm leading-relaxed text-paper/75">
-            Occasional notes from wherever we are — new trip planners, booking dates and the places worth the detour.
-          </p>
-          <NewsletterForm dark />
+          <FooterNewsletter />
         </div>
       </div>
       <div className="border-t border-paper/10">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-6 text-xs text-paper/50 sm:flex-row sm:justify-between sm:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-6 text-xs text-paper/60 sm:flex-row sm:justify-between sm:px-8">
           <span>© {new Date().getFullYear()} The November Couple</span>
-          <span>Some links earn us a small commission at no cost to you.</span>
+          <span>
+            Some links earn us a small commission at no cost to you.{" "}
+            <Link href="/disclosure" className="underline underline-offset-2 hover:text-paper">
+              Disclosure
+            </Link>
+          </span>
         </div>
       </div>
     </footer>

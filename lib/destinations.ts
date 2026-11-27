@@ -41,6 +41,13 @@ export function getAllDestinations(): DestinationBundle[] {
   return cache;
 }
 
+/** The live trip with the most recent start date — featured as "Latest trip". */
+export function getLatestTrip(): DestinationBundle | undefined {
+  return getAllDestinations()
+    .filter((b) => b.destination.status === "live")
+    .sort((a, b) => b.destination.ourTrip.start.localeCompare(a.destination.ourTrip.start))[0];
+}
+
 export function getDestination(slug: string): DestinationBundle | undefined {
   return getAllDestinations().find((d) => d.destination.slug === slug);
 }

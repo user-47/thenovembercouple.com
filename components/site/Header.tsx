@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { site } from "@/content/site";
 
-export function Header() {
+export function Header({ cta }: { cta?: { href: string; name: string } }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
@@ -44,9 +44,11 @@ export function Header() {
               {n.label}
             </NavLink>
           ))}
-          <Link href="/trips/japan/planner" className="btn btn-primary btn-sm whitespace-nowrap">
-            Plan Japan
-          </Link>
+          {cta && (
+            <Link href={cta.href} className="btn btn-primary btn-sm whitespace-nowrap">
+              Plan {cta.name}
+            </Link>
+          )}
         </div>
 
         <button
@@ -71,9 +73,11 @@ export function Header() {
               </li>
             ))}
           </ul>
-          <Link href="/trips/japan/planner" className="btn btn-primary mt-6 w-full">
-            Plan your Japan trip
-          </Link>
+          {cta && (
+            <Link href={cta.href} className="btn btn-primary btn-lg mt-6 w-full">
+              Plan your {cta.name} trip
+            </Link>
+          )}
         </nav>
       )}
     </header>
