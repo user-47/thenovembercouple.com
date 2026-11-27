@@ -1,5 +1,5 @@
 import { fromZonedTime } from "date-fns-tz";
-import type { BookingRule } from "./schema";
+import type { Activity, BookingRule } from "./schema";
 import { addDays, addMonths, firstOfMonth, lastOfMonth, parseYmd, toYmd } from "./dates";
 
 export type WindowKind = "release" | "lottery" | "recommended" | "none";
@@ -103,6 +103,36 @@ export function getReminderTimes(w: BookingWindow, now: Date = new Date()): { at
     out = [{ at: new Date(w.actionAt.getTime() - 72 * H), label: "Book within the next 3 days" }];
   }
   return out.filter((r) => r.at > now);
+}
+
+const riskRank = { extreme: 0, high: 1, medium: 2, low: 3 } as const;
+const levelRank = { essential: 0, recommended: 1, none: 2 } as const;
+
+/** Rough days of notice a rule needs — used only to order activities, not to compute dates. */
+export function leadDays(rule: BookingRule): number {
+  switch (rule.type) {
+    case "daysBefore":
+      return rule.days;
+    case "monthsBefore":
+      return rule.months * 30;
+    case "monthlyRelease":
+      return rule.monthsAhead * 30 + 15;
+    case "lottery":
+      return rule.entryMonthsBefore * 30;
+    case "recommended":
+      return rule.daysBefore;
+    case "none":
+      return 0;
+  }
+}
+
+/** "Book first": what sells out fastest, then what must be pre-booked, then what needs the most notice. */
+export function compareBookFirst(a: Activity, b: Activity): number {
+  return (
+    riskRank[a.booking.sellOutRisk] - riskRank[b.booking.sellOutRisk] ||
+    levelRank[a.booking.level] - levelRank[b.booking.level] ||
+    leadDays(b.booking.rule) - leadDays(a.booking.rule)
+  );
 }
 
 export function describeRule(rule: BookingRule, tzLabel: string): string {
