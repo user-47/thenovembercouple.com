@@ -38,7 +38,10 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/25 to-transparent" />
           </>
         ) : (
-          <Ring className="pointer-events-none absolute left-1/2 top-1/2 h-[min(130vw,860px)] w-[min(130vw,860px)] -translate-x-1/2 -translate-y-1/2 opacity-60" />
+          <Ring
+            oval
+            className="pointer-events-none absolute left-1/2 top-1/2 hidden h-[min(80vw,700px)] w-[min(98vw,1000px)] -translate-x-1/2 -translate-y-1/2 opacity-60 sm:block"
+          />
         )}
         <div
           className={`relative mx-auto w-full max-w-7xl px-5 sm:px-8 ${
@@ -52,7 +55,7 @@ export default function Home() {
             <h1 className="display mt-6 text-balance text-[clamp(2.5rem,6vw,4.25rem)] leading-[1.04]">
               Lifestyle, travel and everyday tips, from a <em className={photo ? "" : "bronze-text"}>family of four</em>.
             </h1>
-            <p className={`mt-6 text-lg leading-relaxed ${photo ? "text-paper/90" : "mx-auto max-w-xl text-espresso/85"}`}>
+            <p className={`mt-6 text-pretty text-lg leading-relaxed ${photo ? "text-paper/90" : "mx-auto max-w-xl text-espresso/85"}`}>
               We&rsquo;re {site.couple}. We travel with {site.kids} and share the trips, the planning and the everyday in between, so you
               can do it too.
             </p>

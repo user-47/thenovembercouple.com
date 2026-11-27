@@ -11,7 +11,7 @@ export function LatestTripCard({ trip, id }: { trip: DestinationBundle; id?: str
     [String(days), "days"],
     [String(activities.length), "experiences"],
     [site.kidsAges, "travelling with"],
-    ["Every", "booking date"],
+    [String(activities.filter((a) => a.booking.level === "essential").length), "must pre-book"],
   ];
 
   return (
