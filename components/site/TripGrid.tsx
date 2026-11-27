@@ -2,9 +2,8 @@ import Link from "next/link";
 import { Frame } from "@/components/brand/Frame";
 import { Reveal } from "@/components/ui/Reveal";
 import { site } from "@/content/site";
-import type { DestinationBundle } from "@/lib/destinations";
+import { tripCities, type DestinationBundle } from "@/lib/destinations";
 import type { PostMeta } from "@/lib/journal";
-import { tripCities } from "./LatestTripCard";
 
 interface Card {
   key: string;

@@ -2,16 +2,7 @@ import Link from "next/link";
 import { Frame } from "@/components/brand/Frame";
 import { Reveal } from "@/components/ui/Reveal";
 import { site } from "@/content/site";
-import { formatYmd } from "@/lib/dates";
-import type { DestinationBundle } from "@/lib/destinations";
-
-export function tripCities(cities: string[]) {
-  return cities.filter((c) => c !== "Day trips");
-}
-
-export function tripDateRange(start: string, end: string) {
-  return `${formatYmd(start, { weekday: false })} – ${formatYmd(end, { weekday: false, year: true })}`;
-}
+import { tripCities, tripDateRange, type DestinationBundle } from "@/lib/destinations";
 
 export function LatestTripCard({ trip, id }: { trip: DestinationBundle; id?: string }) {
   const { destination: d, itinerary, activities } = trip;
