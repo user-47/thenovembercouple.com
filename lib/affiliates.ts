@@ -1,3 +1,5 @@
+import type { ActivityLink } from "./schema";
+
 /**
  * Affiliate partners. Links in content carry the plain partner URL; the /go route
  * appends the tracking parameter from env so IDs never live in content files.
@@ -21,4 +23,15 @@ export function withAffiliate(url: string, partner?: string): string {
 /** Internal tracked URL for an activity link. */
 export function goHref(destination: string, activity: string, index: number) {
   return `/go/${destination}/${activity}/${index}`;
+}
+
+/** Affiliate links first (the primary "Book" button), official links after. Keeps each link's index for goHref. */
+export function orderedLinks(links: ActivityLink[]) {
+  return links
+    .map((link, index) => ({ link, index }))
+    .sort((a, b) => Number(b.link.kind === "affiliate") - Number(a.link.kind === "affiliate"));
+}
+
+export function linkLabel(link: ActivityLink) {
+  return link.kind === "affiliate" ? `Book on ${link.label}` : link.label;
 }

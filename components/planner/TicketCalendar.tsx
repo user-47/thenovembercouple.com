@@ -6,7 +6,8 @@ import { getBookingWindow, type BookingWindow } from "@/lib/booking-rules";
 import { buildIcs, googleCalendarUrl, outlookCalendarUrl, type CalendarItem } from "@/lib/calendar";
 import { formatYmd, parseYmd, monthShort } from "@/lib/dates";
 import { countdown, fmtDateTime, fmtTime, localTimeZone, shortTzName } from "@/lib/format";
-import { goHref } from "@/lib/affiliates";
+import { track } from "@vercel/analytics";
+import { goHref, linkLabel, orderedLinks } from "@/lib/affiliates";
 import type { Activity } from "@/lib/schema";
 import type { Trip } from "@/lib/trip-store";
 import { StatusPill, useNow, type PlannerData } from "./shared";
@@ -46,10 +47,18 @@ export function TicketCalendar({ data, trip }: { data: PlannerData; trip: Trip }
         continue;
       }
       const when = w.hasTime && w.actionAt ? ` at ${fmtTime(w.actionAt, d.timezone)} ${d.timezoneLabel}` : "";
+      const bookLines = orderedLinks(a.booking.links).map(({ link, index }) => `${linkLabel(link)}: ${siteUrl}${goHref(d.slug, a.slug, index)}`);
       const cal: CalendarItem = {
         uid: `${d.slug}-${a.slug}-${item.date}@thenovembercouple.com`,
         title: `🎟 ${verb(w)}: ${a.name}${when}`,
-        description: `For your visit on ${formatYmd(item.date, { year: true })}.\n${a.booking.howTo ?? ""}\n\nPlanned with The November Couple trip planner.`,
+        description: [
+          `For your visit on ${formatYmd(item.date, { year: true })}.`,
+          a.booking.howTo,
+          bookLines.join("\n"),
+          "Planned with The November Couple trip planner.",
+        ]
+          .filter(Boolean)
+          .join("\n\n"),
         url: `${siteUrl}/trips/${d.slug}/${a.slug}`,
         window: w,
       };
@@ -81,6 +90,7 @@ export function TicketCalendar({ data, trip }: { data: PlannerData; trip: Trip }
     link.download = `tnc-${d.slug}-ticket-dates.ics`;
     link.click();
     URL.revokeObjectURL(url);
+    track("ics_download", { destination: d.slug, events: upcoming.length });
   }
 
   if (trip.items.length === 0) {
@@ -162,9 +172,8 @@ export function TicketCalendar({ data, trip }: { data: PlannerData; trip: Trip }
 
   function rowView(r: Row) {
     const { a, w } = r;
-    const primaryIdx = a.booking.links.findIndex((l) => l.kind === "official");
-    const bookIdx = primaryIdx >= 0 ? primaryIdx : 0;
-    const book = a.booking.links[bookIdx];
+    const [book, ...rest] = orderedLinks(a.booking.links);
+    const official = book?.link.kind === "affiliate" ? rest.find((x) => x.link.kind === "official") : undefined;
     const g = googleCalendarUrl(r.cal);
     const o = outlookCalendarUrl(r.cal);
     const ad = w.actionDate ? parseYmd(w.actionDate) : null;
@@ -204,8 +213,18 @@ export function TicketCalendar({ data, trip }: { data: PlannerData; trip: Trip }
           {a.booking.howTo && <p className="mt-3 max-w-xl text-sm leading-relaxed text-espresso/75">{a.booking.howTo}</p>}
           <div className="mt-4 flex flex-wrap gap-2">
             {book && (
-              <a href={goHref(d.slug, a.slug, bookIdx)} target="_blank" rel="noopener sponsored" className="btn btn-primary btn-sm">
-                {book.kind === "official" ? "Official site" : `Book on ${book.label}`} ↗
+              <a
+                href={goHref(d.slug, a.slug, book.index)}
+                target="_blank"
+                rel={book.link.kind === "affiliate" ? "noopener sponsored" : "noopener"}
+                className="btn btn-primary btn-sm"
+              >
+                {book.link.kind === "affiliate" ? linkLabel(book.link) : "Official site"} ↗
+              </a>
+            )}
+            {official && (
+              <a href={goHref(d.slug, a.slug, official.index)} target="_blank" rel="noopener" className="btn btn-ghost btn-sm">
+                Official site ↗
               </a>
             )}
             {g && (

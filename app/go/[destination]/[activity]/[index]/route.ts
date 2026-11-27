@@ -1,4 +1,5 @@
 import { after, NextResponse } from "next/server";
+import { track } from "@vercel/analytics/server";
 import { withAffiliate } from "@/lib/affiliates";
 import { getActivity } from "@/lib/destinations";
 import { db } from "@/lib/server/supabase";
@@ -13,6 +14,12 @@ export async function GET(_req: Request, { params }: { params: Promise<{ destina
   const target = link.kind === "affiliate" ? withAffiliate(link.url, link.partner) : link.url;
 
   after(async () => {
+    await track("outbound_click", {
+      destination: r.destination.slug,
+      activity: r.activity.slug,
+      kind: link.kind,
+      partner: link.partner ?? null,
+    }).catch(() => {});
     const supabase = db();
     if (!supabase) return;
     await supabase.from("affiliate_clicks").insert({
