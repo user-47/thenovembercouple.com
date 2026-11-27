@@ -31,7 +31,7 @@ export default function TripsPage() {
               <Frame
                 src={d.coverImage}
                 alt={d.name}
-                label={d.nameLocal ?? d.name}
+                label={d.name}
                 sublabel={d.ourTrip.label}
                 seed={i + 1}
                 className="aspect-[4/5] sm:aspect-[5/6]"

@@ -8,10 +8,7 @@ const tones = [
   "from-[#ddd2c0] to-[#c6b293]",
 ];
 
-/**
- * Photo frame. With `src` it renders the image; without, an editorial typographic
- * placeholder (local-script name + ring) so the layout looks intentional before photos land.
- */
+/** Photo frame. Real photo when `src` is set; otherwise a typographic fallback (label + ring). */
 export function Frame({
   src,
   alt,
@@ -44,8 +41,14 @@ export function Frame({
           <Ring className="absolute opacity-60" size={260} />
           {label && (
             <span
-              className={`display relative max-w-[70%] text-center text-espresso/80 ${
-                label.length > 7 ? "text-3xl leading-snug sm:text-4xl" : label.length > 4 ? "text-4xl sm:text-5xl" : "text-5xl sm:text-6xl"
+              className={`display relative max-w-[75%] text-balance text-center text-espresso/80 ${
+                label.length > 16
+                  ? "text-2xl leading-snug sm:text-3xl"
+                  : label.length > 7
+                    ? "text-3xl leading-snug sm:text-4xl"
+                    : label.length > 4
+                      ? "text-4xl sm:text-5xl"
+                      : "text-5xl sm:text-6xl"
               }`}
             >
               {label}

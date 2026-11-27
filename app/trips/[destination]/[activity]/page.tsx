@@ -46,7 +46,7 @@ export default async function ActivityPage({ params }: { params: Promise<{ desti
 
       <div className="mt-10 grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-6">
-          <Frame src={a.image} alt={a.name} label={a.nameLocal} sublabel={a.city} seed={a.slug.length} className="aspect-[4/5]" sizes="(max-width: 1024px) 100vw, 50vw" priority />
+          <Frame src={a.image} alt={a.name} label={a.name} sublabel={a.city} seed={a.slug.length} className="aspect-[4/5]" sizes="(max-width: 1024px) 100vw, 50vw" priority />
         </div>
 
         <div className="lg:col-span-6 lg:pt-6">

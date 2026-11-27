@@ -15,7 +15,7 @@ export function ActivityCard({ a, d, index }: { a: Activity; d: Destination; ind
         <Frame
           src={a.image}
           alt={a.name}
-          label={a.nameLocal}
+          label={a.name}
           sublabel={a.city}
           seed={index}
           className="aspect-[4/5] transition-transform duration-700 group-hover:scale-[1.01]"
